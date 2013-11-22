@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="main" template="/WEB-INF/pages/template/main.jsp">
+		<put-attribute name="menu" value="/WEB-INF/pages/template/menu.jsp"/>
+		<put-attribute name="alert" value="/WEB-INF/pages/template/alert.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/pages/template/footer.jsp"/>
+		
+		<put-list-attribute name="jsfilesList" />
+		<put-list-attribute name="breadcrumbsList" />
+		<put-list-attribute name="cssfilesList" />
+		<put-list-attribute name="menuOptionsList" />
+		
+	</definition>
+	
+	<definition name="home" extends="main">
+		<put-attribute name="body" value="/WEB-INF/pages/home.jsp"/>
+	</definition>
+	
+	<definition name="cadastro-inclusao" extends="main">
+		<put-attribute name="body" value="/WEB-INF/pages/cadastro/cadastro-inclusao.jsp"/>
+		<put-list-attribute name="breadcrumbsList">
+			<add-attribute value="home|Home"/>
+			<add-attribute value="#|Administrar"/>
+			<add-attribute value="cadastro/prepararInclusao|Membro"/>
+			<add-attribute value="Consultar"/>
+		</put-list-attribute>
+		<put-list-attribute name="menuOptionsList">
+			<add-attribute value="Consultar"/>
+			<add-attribute value="Inserir"/>
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="cadastro-pesquisa" extends="main">
+		<put-attribute name="body" value="/WEB-INF/pages/cadastro/cadastro-pesquisa.jsp"/>
+		<put-list-attribute name="breadcrumbsList">
+			<add-attribute value="home|Home"/>
+			<add-attribute value="#|Administrar"/>
+			<add-attribute value="cadastro/pesquisar|Membro"/>
+			<add-attribute value="Pesquisar"/>
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="signin" extends="main">
+		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"/>
+	</definition>	
+</tiles-definitions>
