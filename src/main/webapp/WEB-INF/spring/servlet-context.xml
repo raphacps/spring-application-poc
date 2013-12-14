@@ -49,17 +49,25 @@
 	
 
 	<!-- Configurações de banco, usuario e senha -->
-	<beans:bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<!-- beans:bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 	    <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 	    <beans:property name="url" value="jdbc:mysql://localhost:3306/sigemem"/>
 	    <beans:property name="username" value="root"/>
 	    <beans:property name="password" value=""/>
-	</beans:bean>
+	</beans:bean -->
+
+	<beans:bean id="mysqlDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <beans:property name="jndiName" value="java:/sigemem" />
+    </beans:bean>
 
 	<beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	  <beans:property name="persistenceUnitName" value="sigemem" />
 	  <beans:property name="dataSource" ref="mysqlDataSource" />
 	  <beans:property name="jpaVendorAdapter">
-	    <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+	    <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			<beans:property name="showSql" value="true" />
+        	<beans:property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+	    </beans:bean>
 	  </beans:property>
 	</beans:bean>
 	
@@ -72,6 +80,18 @@
 	<context:component-scan base-package="br.com.tecnoone.app.dao.impl" />
 	<context:component-scan base-package="br.com.tecnoone.app.service.impl" />
 	<context:component-scan base-package="br.com.tecnoone.app.presentation.controller" />
+
+
+
+	<beans:bean id="handlerExceptionResolver " class="br.com.tecnoone.app.presentation.controller.HandlerExceptionResolver">
+        <!-- See note below on how this interacts with Spring Boot -->
+        <beans:property name="defaultErrorView" value="errorPage"/>
+        <beans:property name="exceptionAttribute" value="ex"/>
+
+        <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
+        <beans:property name="warnLogCategory" value="example.MvcLogger"/>
+    </beans:bean>
+
 
 
 </beans:beans>

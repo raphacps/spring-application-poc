@@ -49,5 +49,11 @@
 	<definition name="signin" extends="main">
 		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"/>
-	</definition>	
+	</definition>
+	
+	<definition name="errorPage" extends="main">
+		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/pages/errorPage.jsp"/>
+	</definition>
+	
 </tiles-definitions>

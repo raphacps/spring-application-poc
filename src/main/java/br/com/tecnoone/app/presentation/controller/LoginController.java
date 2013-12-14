@@ -43,6 +43,7 @@ public class LoginController {
 		logger.info("login : " + loginUsuario);
 		
 		loginUsuario = new Login(loginName);
+		loginUsuario.setId(new Long(1));
 		loginUsuario = usuarioService.find(loginUsuario);
 		logger.info("usuário retornado: " + loginUsuario);
 		return home(loginUsuario);
