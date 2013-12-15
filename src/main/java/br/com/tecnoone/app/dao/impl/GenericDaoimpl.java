@@ -1,6 +1,8 @@
 package br.com.tecnoone.app.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +17,7 @@ import br.com.tecnoone.app.domain.entity.AppEntity;
 public class GenericDaoimpl	implements Dao<AppEntity> {
 
 	@PersistenceContext
-	private EntityManager entityManager;
+	protected EntityManager entityManager;
 
 	public void create(AppEntity obj) {
 		entityManager.persist(obj);
@@ -25,7 +27,7 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 		return entityManager.merge(obj);
 	}
 
-	public AppEntity find(AppEntity obj) {
+	public AppEntity load(AppEntity obj) {
 		return entityManager.find(obj.getClass(), obj.getPrimaryKey());
 	}
 
@@ -45,4 +47,16 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 		return query.getResultList();
 	}
 
+	@Override
+	public AppEntity loadByNamedQuey(String nameQuery, HashMap<String, Object> params) {
+		Query query = entityManager.createNamedQuery(nameQuery);
+		
+		Set<String> chaves = params.keySet();
+		
+		for(String chave : chaves){
+			query.setParameter(chave, params.get(chave));
+		}
+		
+		return (AppEntity) query.getSingleResult();
+	}
 }

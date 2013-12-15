@@ -52,9 +52,13 @@
 				</li>
 				<li class='dropdown active'>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="sair">
-						<h4><span class="glyphicon glyphicon-user"></span>&nbsp;${login.login}<b class="caret"></b></h4>
+						<h4><span class="glyphicon glyphicon-user"></span>&nbsp;${pessoa.usuario.loginName}<b class="caret"></b></h4>
 					</a>
 					<ul class="dropdown-menu">
+						<li>
+							<a href="${pageContext.request.contextPath}/pessoa/prepararAlteracao"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
+						</li>
+						<li class="divider" />
 						<li>
 							<a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> sair</a>
 						</li>

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Telefone implements Serializable {
@@ -14,14 +16,18 @@ public class Telefone implements Serializable {
 	private static final long serialVersionUID = -7647570788191345491L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	@Column
 	private Integer ddd;
 
 	@Column
 	private Integer numero;
+
+	@ManyToOne
+	@JoinColumn(name="id_pessoa", nullable=false)
+	private Pessoa pessoa;
 
 	public long getId() {
 		return id;
@@ -45,6 +51,14 @@ public class Telefone implements Serializable {
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	@Override
@@ -83,5 +97,4 @@ public class Telefone implements Serializable {
 		return "Telefone [id=" + id + ", ddd=" + ddd + ", numero=" + numero
 				+ "]";
 	}
-
 }

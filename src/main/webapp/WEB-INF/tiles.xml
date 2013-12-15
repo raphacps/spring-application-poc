@@ -46,6 +46,15 @@
 		</put-list-attribute>
 	</definition>
 	
+	<definition name="usuario-alteracao" extends="main">
+		<put-attribute name="body" value="/WEB-INF/pages/usuario/usuario-alteracao.jsp"/>
+		<put-list-attribute name="breadcrumbsList">
+			<add-attribute value="home|Home"/>
+			<add-attribute value="#|usuario"/>
+			<add-attribute value="Alterar"/>
+		</put-list-attribute>
+	</definition>
+	
 	<definition name="signin" extends="main">
 		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"/>

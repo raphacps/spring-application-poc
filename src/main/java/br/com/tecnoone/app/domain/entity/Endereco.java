@@ -13,7 +13,7 @@ public class Endereco implements Serializable{
 	private static final long serialVersionUID = -7786887463998151846L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String cep;
 	private String estado;

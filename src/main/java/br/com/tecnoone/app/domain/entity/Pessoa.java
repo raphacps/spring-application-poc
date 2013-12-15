@@ -4,29 +4,44 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Pessoa implements Serializable {
+@NamedQueries({
+	@NamedQuery(name="pessoa.loadByidUsuario", query="select p from Pessoa p where p.usuario.id = :id")})
+
+public class Pessoa implements Serializable, AppEntity {
 
 	private static final long serialVersionUID = 198532763431970887L;
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nome;
 	private String idade;
 	private String cpf;
 	private String rg;
 
-	@OneToMany
+	@OneToMany(mappedBy = "pessoa")
 	private List<Telefone> telefones = new ArrayList<>();
 
-	@OneToMany
-	private List<Endereco> enderecos = new ArrayList<>();
+	@OneToOne(optional = true, orphanRemoval = true)
+	@JoinColumn(name = "id_endereco")
+	private Endereco endereco;
+
+	@OneToOne(optional = true, orphanRemoval = true, cascade=CascadeType.ALL)
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 
 	public Long getId() {
 		return id;
@@ -76,14 +91,6 @@ public class Pessoa implements Serializable {
 		this.telefones = telefones;
 	}
 
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
-
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -109,11 +116,17 @@ public class Pessoa implements Serializable {
 		return true;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
-	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", idade=" + idade
-				+ ", cpf=" + cpf + ", rg=" + rg + ", telefones=" + telefones
-				+ ", enderecos=" + enderecos + "]";
+	public Object getPrimaryKey() {
+		return getId();
 	}
 
 }

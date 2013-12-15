@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.tecnoone.app.domain.entity.Login;
+import br.com.tecnoone.app.domain.entity.Usuario;
 import br.com.tecnoone.app.domain.repository.UsuarioRepository;
 import br.com.tecnoone.app.service.UsuarioService;
 
@@ -15,11 +15,16 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 
-	public List<Login> findBy(Login example) {
-		return (List<Login>) repository.buscarPor(example);
+	public List<Usuario> findBy(Usuario exemplo) {
+		return null;//(List<Login>) repository.buscarPor(exemplo);
 	}
 	
-	public Login find(Login pk) {
-		return repository.buscarPor(pk);
+	public Usuario find(Usuario pk) {
+		return null;//repository.carregarPor(pk);
+	}
+
+	@Override
+	public Usuario loadByLoginName(Usuario usuario) {
+		return repository.carregarPor(usuario);
 	}
 }

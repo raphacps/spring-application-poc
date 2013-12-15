@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import br.com.tecnoone.app.domain.entity.Login;
+import br.com.tecnoone.app.domain.entity.Usuario;
+import br.com.tecnoone.app.service.PessoaService;
 import br.com.tecnoone.app.service.UsuarioService;
 
 @Controller
-@SessionAttributes("login")
+@SessionAttributes("pessoa")
 public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -24,7 +25,10 @@ public class LoginController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@Autowired
+	private PessoaService pessoaService;
+	
+	@RequestMapping(value = {"/login","/"}, method = RequestMethod.GET)
 	public String login() {
 		logger.info("acessando tela de login");		
 		return "signin";
@@ -39,19 +43,18 @@ public class LoginController {
 		
 	@RequestMapping(value = "/verificaLogin", method = RequestMethod.POST)
 	public String validaLogin(@RequestParam(value="login") String loginName, 
-							  @RequestParam String senha, Model model, Login loginUsuario) {
-		logger.info("login : " + loginUsuario);
+							  @RequestParam String senha, Model model, Usuario loginUsuario) {		
 		
-		loginUsuario = new Login(loginName);
-		loginUsuario.setId(new Long(1));
-		loginUsuario = usuarioService.find(loginUsuario);
-		logger.info("usuário retornado: " + loginUsuario);
-		return home(loginUsuario);
+		loginUsuario.setLoginName(loginName);
+		loginUsuario = usuarioService.loadByLoginName(loginUsuario);
+	
+		model.addAttribute("pessoa", pessoaService.loadBy(loginUsuario));
+		
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home(Login usuario) {
-		logger.info("home: " + usuario);
+	public String home() {
 		return "home";
 	}
 }
