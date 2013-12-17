@@ -26,7 +26,7 @@ public class PessoaServiceImpl implements PessoaService{
 	@Override
 	@Transactional
 	public void persist(Pessoa pessoa) {
-		repository.salvar(pessoa);
+		
 		
 	}
 
@@ -37,7 +37,7 @@ public class PessoaServiceImpl implements PessoaService{
 	}
 
 	@Override
-	public Pessoa find(Pessoa pk) {
+	public Pessoa load(Pessoa pk) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,6 +45,12 @@ public class PessoaServiceImpl implements PessoaService{
 	@Override
 	public Pessoa loadBy(Usuario usuario) {
 		return repository.loadBy(usuario);
+	}
+
+	@Override
+	@Transactional
+	public Pessoa update(Pessoa entity) {
+		return repository.update(entity);
 	}
 
 }

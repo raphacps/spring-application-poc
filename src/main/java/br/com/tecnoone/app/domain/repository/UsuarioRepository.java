@@ -16,7 +16,7 @@ public class UsuarioRepository{
 	@Qualifier(value="genericDao")
 	private Dao<Usuario> dao;
 	
-	public Usuario carregarPor(Usuario login){
+	public Usuario loadByLoginName(Usuario login){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
@@ -32,6 +32,6 @@ public class UsuarioRepository{
 			params.put("senha", login.getSenha());
 		}
 		
-		return (Usuario) dao.loadByNamedQuey("login.findByLoginName", params);
+		return (Usuario) dao.loadByNamedQuery("login.findByLoginName", params);
 	}
 }

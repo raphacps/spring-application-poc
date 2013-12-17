@@ -16,8 +16,8 @@ public class PessoaRepository {
 	@Qualifier(value = "genericDao")
 	private Dao<Pessoa> dao;
 
-	public void salvar(Pessoa pessoa) {
-		dao.update(pessoa);
+	public Pessoa update(Pessoa pessoa) {
+		return dao.update(pessoa);
 	}
 
 	public Pessoa loadBy(Usuario usuario) {
@@ -27,7 +27,7 @@ public class PessoaRepository {
 			params.put("id", usuario.getId());
 		}
 
-		return dao.loadByNamedQuey("pessoa.loadByidUsuario", params);
+		return dao.loadByNamedQuery("pessoa.loadByidUsuario", params);
 	}
 
 }

@@ -19,12 +19,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return null;//(List<Login>) repository.buscarPor(exemplo);
 	}
 	
-	public Usuario find(Usuario pk) {
+	public Usuario load(Usuario pk) {
 		return null;//repository.carregarPor(pk);
 	}
 
 	@Override
 	public Usuario loadByLoginName(Usuario usuario) {
-		return repository.carregarPor(usuario);
+		return repository.loadByLoginName(usuario);
 	}
 }

@@ -48,7 +48,7 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 	}
 
 	@Override
-	public AppEntity loadByNamedQuey(String nameQuery, HashMap<String, Object> params) {
+	public AppEntity loadByNamedQuery(String nameQuery, HashMap<String, Object> params) {
 		Query query = entityManager.createNamedQuery(nameQuery);
 		
 		Set<String> chaves = params.keySet();

@@ -1,6 +1,22 @@
 package br.com.tecnoone.app.service.core;
 
 public interface PersistService <T> {
-    void delete(T obj);
-    void persist(T obj);
+    /**
+     * Deleta um registro do banco fisicamente
+     * @param entity
+     */
+	void delete(T entity);
+	
+	/**
+	 * Salva uma entidade no banco de dados
+	 * @param entity
+	 */
+    void persist(T entity);
+    
+    /**
+     * Atualiza uma entidade no banco de dados
+     * @param entity
+     * @return entity - Entidade alterada.
+     */
+    T update(T entity);
 }

@@ -13,7 +13,7 @@ public interface Dao<T extends AppEntity> {
 	
 	T load(T pk);
 	
-	T loadByNamedQuey(String namedQuery, HashMap<String, Object> params);
+	T loadByNamedQuery(String namedQuery, HashMap<String, Object> params);
 	
 	void remove(T entity);
 	

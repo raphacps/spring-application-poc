@@ -13,10 +13,10 @@ import br.com.tecnoone.app.domain.entity.Pessoa;
 import br.com.tecnoone.app.service.PessoaService;
 
 @Controller
-@RequestMapping(value="pessoa")
+@RequestMapping(value="membro")
 @SessionAttributes("pessoa")
 public class PessoaController {
-	public static final String PREPARAR_ALTERACAO = "usuario-alteracao";
+	public static final String PREPARAR_ALTERACAO = "membro-alteracao";
 	
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class PessoaController {
 	@RequestMapping(value="/salvar", method=RequestMethod.POST)
 	public String salvar(@ModelAttribute Pessoa pessoa){
 		
-		pessoaService.persist(pessoa);
+		pessoaService.update(pessoa);
 		
 		return "redirect:prepararAlteracao";
 	}

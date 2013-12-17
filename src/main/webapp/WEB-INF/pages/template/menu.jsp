@@ -43,7 +43,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="${pageContext.request.contextPath}/cadastro/pesquisar"><span class="glyphicon glyphicon-user"></span> Membros</a>
+							<a href="${pageContext.request.contextPath}/membro/pesquisar"><span class="glyphicon glyphicon-user"></span> Membros</a>
 						</li>
 						<li>
 							<a href="#"><span class="glyphicon glyphicon-usd"></span> Tesouraria</a>
@@ -56,9 +56,9 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="${pageContext.request.contextPath}/pessoa/prepararAlteracao"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
+							<a href="${pageContext.request.contextPath}/membro/prepararAlteracao"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
 						</li>
-						<li class="divider" />
+						<li class="divider"></li>
 						<li>
 							<a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> sair</a>
 						</li>

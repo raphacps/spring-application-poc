@@ -4,7 +4,17 @@ import java.util.List;
 
 public interface ReaderService<T> {
     
+	/**
+	 * busca uma lista de objetos de acordo com os parametros do filtro.
+	 * @param example
+	 * @return T generico
+	 */
     List<T> findBy(T example);
 
-    T find(T pk);
+    /**
+     * Carrega uma entidade pela chave primaria
+     * @param pk
+     * @return
+     */
+    T load(T pk);
 }

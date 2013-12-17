@@ -35,9 +35,11 @@ public class Pessoa implements Serializable, AppEntity {
 	@OneToMany(mappedBy = "pessoa")
 	private List<Telefone> telefones = new ArrayList<>();
 
-	@OneToOne(optional = true, orphanRemoval = true)
+	@OneToOne(optional = true, orphanRemoval = true, cascade=CascadeType.ALL)
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
+
+	
 
 	@OneToOne(optional = true, orphanRemoval = true, cascade=CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
@@ -89,6 +91,14 @@ public class Pessoa implements Serializable, AppEntity {
 
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
+	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override
