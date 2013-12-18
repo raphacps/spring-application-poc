@@ -8,22 +8,22 @@
 
 <div class="form-group row">	
 	<div class="col-md-10">
-		<label for="nome">Nome:</label> 
-		<form:input cssClass="form-control" path="nome"/>
+		<form:label path="nome" >Nome:</form:label> 
+		<form:input cssClass="form-control" path="nome" cssErrorClass="form-control danger"/>
 	</div>
 	<div class="col-md-2">
-		<label for="idade">Idade:${tipoOperacao}</label> 
-		<form:input cssClass="form-control" path="idade"/>
+		<form:label path="idade">Idade:${tipoOperacao}</form:label> 
+		<form:input cssClass="form-control" path="idade" cssErrorClass="form-control danger"/>
 	</div>
 </div>
 <div class="form-group row">
 	<div class="col-md-4">
-		<label for="telefone">CPF:</label> 
-		<form:input cssClass="form-control" path="cpf"/>
+		<form:label path="cpf">CPF:</form:label> 
+		<form:input cssClass="form-control" path="cpf" cssErrorClass="form-control danger"/>
 	</div>
 		<div class="col-md-4">
-		<label for="telefone">RG:</label> 
-		<form:input cssClass="form-control" path="rg"/>
+		<form:label path="rg">RG:</form:label> 
+		<form:input cssClass="form-control" path="rg" cssErrorClass="form-control danger"/>
 	</div>
 </div>
 
@@ -54,6 +54,39 @@
 		</div>
 	</div>
 </fieldset>
+
+<fieldset>
+	<legend>Telefone</legend>
+		<c:choose>
+			<c:when test="${param.page eq 'alteracao'}">
+				<c:forEach var="tels" items="telefones" varStatus="index">
+					<div class="form-group row">
+						<div class="col-md-2">
+							<form:label path="telefones[${index.count}].ddd">ddd:</form:label>
+							<form:input cssClass="form-control" path="telefones[${index.count}].ddd" />
+						</div>
+						<div class="col-md-10">
+							<form:label path="telefones[${index.count}].numero">Numero:</form:label>
+							<form:input cssClass="form-control" path="telefones[${index.count}].numero" />
+						</div>
+					</div>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<div class="form-group row">
+					<div class="col-md-2">
+						<form:label path="telefones[0].ddd">ddd:</form:label>
+						<form:input cssClass="form-control" path="telefones[0].ddd" />
+					</div>
+					<div class="col-md-10">
+						<form:label path="telefones[0].numero">Numero:</form:label>
+						<form:input cssClass="form-control" path="telefones[0].numero" />
+					</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
+</fieldset>
+
 <c:if test="${param.page eq 'alteracao'}">
 <form:form action="salvar" method="POST" role="form" modelAttribute="pessoa">
 	<div class="form-group row has-error">
@@ -67,12 +100,18 @@
 				<div class="panel-body">
 					<div class="form-group row">
 						<div class="col-md-4">
-							<form:label cssClass="control-label" path="usuario.loginName">login:</form:label> 
-							<form:input cssClass="form-control" path="usuario.loginName"/>
+							<form:label cssClass="control-label" path="usuario.loginName">login:</form:label>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								<form:input cssClass="form-control" path="usuario.loginName"/>
+							</div>
 						</div>
 							<div class="col-md-4">
-							<form:label cssClass="control-label" path="usuario.senha">Senha:</form:label> 
-							<form:password cssClass="form-control" path="usuario.senha"/>
+							<form:label cssClass="control-label" path="usuario.senha">Senha:</form:label>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								<form:password cssClass="form-control" path="usuario.senha"/>
+							</div>
 						</div>
 					</div>
 				</div>

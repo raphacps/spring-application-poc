@@ -61,7 +61,7 @@
 					<tiles:useAttribute id="menuList" name="menuOptionsList" classname="java.util.List" />
 					<c:set var="menuListEmpty" value='${empty menuList}'/>
 					
-					<aside class='col-md-${menuListEmpty?0:2}'>
+					<aside class='col-md-${menuListEmpty?12:2}'>
 						<tiles:useAttribute id="menuList" name="menuOptionsList" classname="java.util.List" />
 					    <c:if test="${not menuListEmpty}">
 					    <ul class="nav nav-pills nav-stacked well affix" style="width: 210px;">
@@ -74,7 +74,7 @@
 					    </c:if>
 					</aside>
 					<!-- fim do menu vetical -->
-					<article class='col-md-${menuListEmpty?0:10}'>
+					<article class='col-md-${menuListEmpty?12:10}'>
 						<tiles:insertAttribute name="body" />
 					</article>	
 				</div>

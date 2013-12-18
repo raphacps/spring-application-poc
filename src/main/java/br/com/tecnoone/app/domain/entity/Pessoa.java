@@ -1,11 +1,11 @@
 package br.com.tecnoone.app.domain.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +14,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @NamedQueries({
@@ -27,13 +30,15 @@ public class Pessoa implements Serializable, AppEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank(message="{nome.usuario.nao.vazio}")
 	private String nome;
+	@Range(min=1, max=100, message="A idade deve variar entre 0 e 100.")
 	private String idade;
 	private String cpf;
 	private String rg;
 
-	@OneToMany(mappedBy = "pessoa")
-	private List<Telefone> telefones = new ArrayList<>();
+	@OneToMany(mappedBy = "pessoa", fetch=FetchType.EAGER)
+	private List<Telefone> telefones;
 
 	@OneToOne(optional = true, orphanRemoval = true, cascade=CascadeType.ALL)
 	@JoinColumn(name = "id_endereco")

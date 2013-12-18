@@ -3,7 +3,8 @@
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 	<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-			<form:form action="cadastro/prepararInclusao" method="POST" role="form" modelAttribute="membro">
+		<form:form action="salvar" method="POST" role="form" modelAttribute="membro">
+			<form:errors cssClass="alert alert-danger" path="*" element="div"/>
 			<div class="panel panel-default less-shadow">
 				<div class="panel-body">
 					<div class="panel panel-primary">
