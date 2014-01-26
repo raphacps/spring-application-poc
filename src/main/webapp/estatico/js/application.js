@@ -5,11 +5,6 @@ $('.container').tooltip({
 	placement : 'auto top'
 });
 
-// configuração de popover
-$("a[data-toggle=popover]").popover().click(function(e) {
-	e.defaultPrevented();
-});
-
 
 $(function() {
     $('#meuTeste').dataTable({
@@ -17,6 +12,23 @@ $(function() {
     	"sPaginationType": "full_numbers",
     	"bPaginate": true,
     	"oLanguage": application.DATATABLE_I18N_CONFIGURATIONS
+    });
+});
+
+$(function() {
+    $('#membroTable').dataTable({
+    	"sDom": "rt<'col-md-5'il><'pagination col-md-7 text-right'p>",
+    	"sPaginationType": "full_numbers",
+    	"bPaginate": true,
+    	"oLanguage": application.DATATABLE_I18N_CONFIGURATIONS,
+    	"bProcessing": true,
+        "sAjaxSource": 'consultarMembros',
+        "aoColumns": [
+                      { "mData": "nome" },
+                      { "mData": "idade" },
+                      { "mData": "cpf" },
+                      { "mData": "rg" }
+                  ]
     });
 });
 

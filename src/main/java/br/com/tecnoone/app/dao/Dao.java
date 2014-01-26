@@ -17,7 +17,7 @@ public interface Dao<T extends AppEntity> {
 	
 	void remove(T entity);
 	
-	List<T> findAll(String namedQuey);
+	List<T> findAll(String namedQuery);
 	
 	Integer getCount(String namedQuery);
 }

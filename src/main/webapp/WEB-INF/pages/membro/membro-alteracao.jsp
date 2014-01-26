@@ -5,10 +5,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-<form:form action="salvar" method="POST" role="form" modelAttribute="pessoa">
+<form:form action="alterar" method="POST" role="form" modelAttribute="membro">
 	<form:errors cssClass="alert alert-danger" path="*" element="div"/>
-	<form:hidden path="id" />
-	<form:hidden path="usuario.id" />
 	<div class="panel panel-default less-shadow" style="margin: auto auto;">
 		<div class="panel-body">
 			<div class="panel panel-primary">

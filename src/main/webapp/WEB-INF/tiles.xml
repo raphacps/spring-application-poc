@@ -39,7 +39,7 @@
 		</put-list-attribute>
 	</definition>
 	
-	<definition name="membro-pesquisa" extends="main">
+	<definition name="membro-consulta" extends="main">
 		<put-attribute name="body" value="/WEB-INF/pages/membro/membro-pesquisa.jsp"/>
 		<put-list-attribute name="breadcrumbsList">
 			<add-attribute value="home|Home"/>

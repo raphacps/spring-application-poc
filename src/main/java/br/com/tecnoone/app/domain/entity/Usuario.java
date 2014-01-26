@@ -8,13 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
 
 @NamedQueries({
 	@NamedQuery(name="login.findByLoginName", query="select u from Usuario u where u.loginName = :loginName"),
 	@NamedQuery(name="login.findAll", query="select u from Usuario u")})
-
+@Table(name="Usuario")
 public class Usuario implements Serializable, AppEntity{
     
 	private static final long serialVersionUID = -1023084253787111893L;

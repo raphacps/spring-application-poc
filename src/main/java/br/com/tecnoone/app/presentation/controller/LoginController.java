@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.com.tecnoone.app.domain.entity.Usuario;
-import br.com.tecnoone.app.service.PessoaService;
+import br.com.tecnoone.app.service.MembroService;
 import br.com.tecnoone.app.service.UsuarioService;
 
 @Controller
-@SessionAttributes("pessoa")
+@SessionAttributes("membroSession")
 public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -26,7 +26,7 @@ public class LoginController {
 	private UsuarioService usuarioService;
 	
 	@Autowired
-	private PessoaService pessoaService;
+	private MembroService membroService;
 	
 	@RequestMapping(value = {"/login","/"}, method = RequestMethod.GET)
 	public String login() {
@@ -48,7 +48,7 @@ public class LoginController {
 		loginUsuario.setLoginName(loginName);
 		loginUsuario = usuarioService.loadByLoginName(loginUsuario);
 	
-		model.addAttribute("pessoa", pessoaService.loadBy(loginUsuario));
+		model.addAttribute("membroSession", membroService.loadBy(loginUsuario));
 		
 		return "redirect:/home";
 	}

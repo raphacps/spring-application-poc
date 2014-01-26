@@ -4,14 +4,19 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
-public class Telefone implements Serializable {
+@Table(name="Telefone")
+public class Telefone implements Serializable, AppEntity {
 
 	private static final long serialVersionUID = -7647570788191345491L;
 
@@ -23,11 +28,12 @@ public class Telefone implements Serializable {
 	private Integer ddd;
 
 	@Column
-	private Integer numero;
+	private String numero;
 
-	@ManyToOne
-	@JoinColumn(name="id_pessoa", nullable=false)
-	private Pessoa pessoa;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="id_membro", nullable=false)
+	@JsonIgnore
+	private Membro membro;
 
 	public long getId() {
 		return id;
@@ -45,20 +51,20 @@ public class Telefone implements Serializable {
 		this.ddd = ddd;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public Membro getMembro() {
+		return membro;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setMembro(Membro membro) {
+		this.membro = membro;
 	}
 
 	@Override
@@ -96,5 +102,10 @@ public class Telefone implements Serializable {
 	public String toString() {
 		return "Telefone [id=" + id + ", ddd=" + ddd + ", numero=" + numero
 				+ "]";
+	}
+
+	@Override
+	public Object getPrimaryKey() {
+		return getId();
 	}
 }

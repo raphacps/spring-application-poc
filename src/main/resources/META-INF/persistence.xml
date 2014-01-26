@@ -10,7 +10,7 @@
 		<jta-data-source>java:/sigemem</jta-data-source>
 		
 		<class>br.com.tecnoone.app.domain.entity.Usuario</class>
-		<class>br.com.tecnoone.app.domain.entity.Pessoa</class>
+		<class>br.com.tecnoone.app.domain.entity.Membro</class>
 		<class>br.com.tecnoone.app.domain.entity.Endereco</class>
 		<class>br.com.tecnoone.app.domain.entity.Telefone</class>
 		

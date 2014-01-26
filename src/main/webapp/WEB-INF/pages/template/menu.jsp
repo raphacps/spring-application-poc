@@ -43,7 +43,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="${pageContext.request.contextPath}/membro/pesquisar"><span class="glyphicon glyphicon-user"></span> Membros</a>
+							<a href="${pageContext.request.contextPath}/membro/prepararConsulta"><span class="glyphicon glyphicon-user"></span> Membros</a>
 						</li>
 						<li>
 							<a href="#"><span class="glyphicon glyphicon-usd"></span> Tesouraria</a>
@@ -52,7 +52,7 @@
 				</li>
 				<li class='dropdown active'>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="sair">
-						<h4><span class="glyphicon glyphicon-user"></span>&nbsp;${pessoa.usuario.loginName}<b class="caret"></b></h4>
+						<h4><span class="glyphicon glyphicon-user"></span>&nbsp;${membroSession.usuario.loginName}<b class="caret"></b></h4>
 					</a>
 					<ul class="dropdown-menu">
 						<li>

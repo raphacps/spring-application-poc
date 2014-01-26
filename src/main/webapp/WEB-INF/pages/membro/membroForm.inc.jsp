@@ -5,14 +5,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-
+<form:hidden path="id" />
+<form:hidden path="usuario.id" />
+<form:hidden path="endereco.id" />
 <div class="form-group row">	
 	<div class="col-md-10">
 		<form:label path="nome" >Nome:</form:label> 
 		<form:input cssClass="form-control" path="nome" cssErrorClass="form-control danger"/>
 	</div>
 	<div class="col-md-2">
-		<form:label path="idade">Idade:${tipoOperacao}</form:label> 
+		<form:label path="idade">Idade:</form:label> 
 		<form:input cssClass="form-control" path="idade" cssErrorClass="form-control danger"/>
 	</div>
 </div>
@@ -31,26 +33,26 @@
 	<legend>Endereço</legend>
 	<div class="form-group row">
 		<div class="col-md-2">
-			<form:label path="endereco.cep">CEP:</form:label> 
-			<form:input cssClass="form-control" path="endereco.cep"/>
+			<label for="cep">CEP:</label> 
+			<form:input id="cep" cssClass="form-control" path="endereco.cep"/>
 		</div>
 		<div class="form-group col-md-10">
-			<form:label path="endereco.rua">Rua:</form:label> 
-			<form:input cssClass="form-control" path="endereco.rua"/>
+			<label for="rua">Rua:</label> 
+			<form:input id="rua" cssClass="form-control" path="endereco.rua"/>
 		</div>
 	</div>
 	<div class="form-group row">
 		<div class="col-md-6">
-			<form:label path="endereco.bairro">Bairro:</form:label>
-			<form:input cssClass="form-control" path="endereco.bairro"/>
+			<label for="bairro">Bairro:</label>
+			<form:input id="bairro" cssClass="form-control" path="endereco.bairro"/>
 		</div>
 		<div class="col-md-4">
-			<form:label path="endereco.complemento">Complemento:</form:label>
-			<form:input cssClass="form-control" path="endereco.complemento"/>
+			<label for="complemento">Complemento:</label>
+			<form:input id="complemento" cssClass="form-control" path="endereco.complemento"/>
 		</div>
 		<div class="col-md-2">
-			<form:label path="endereco.estado">Estado:</form:label>
-			<form:input cssClass="form-control" path="endereco.estado"/>
+			<label for="estado">Estado:</label>
+			<form:input id="estado" cssClass="form-control" path="endereco.estado"/>
 		</div>
 	</div>
 </fieldset>
@@ -60,14 +62,15 @@
 		<c:choose>
 			<c:when test="${param.page eq 'alteracao'}">
 				<c:forEach var="tels" items="telefones" varStatus="index">
+					<form:hidden path="telefones[${index.count-1}].id" />
 					<div class="form-group row">
 						<div class="col-md-2">
-							<form:label path="telefones[${index.count}].ddd">ddd:</form:label>
-							<form:input cssClass="form-control" path="telefones[${index.count}].ddd" />
+							<form:label path="telefones[${index.count-1}].ddd">ddd:</form:label>
+							<form:input cssClass="form-control" path="telefones[${index.count-1}].ddd" />
 						</div>
 						<div class="col-md-10">
-							<form:label path="telefones[${index.count}].numero">Numero:</form:label>
-							<form:input cssClass="form-control" path="telefones[${index.count}].numero" />
+							<form:label path="telefones[${index.count-1}].numero">Numero:</form:label>
+							<form:input cssClass="form-control" path="telefones[${index.count-1}].numero" />
 						</div>
 					</div>
 				</c:forEach>
@@ -88,10 +91,10 @@
 </fieldset>
 
 <c:if test="${param.page eq 'alteracao'}">
-<form:form action="salvar" method="POST" role="form" modelAttribute="pessoa">
+
 	<div class="form-group row has-error">
-		<div class="col-md-6">
-			<div class="panel panel-danger">
+		<div class="col-md-5">
+			<div class="panel panel-danger" id='popover' data-toggle='popover'>
 				<div class="panel-heading">
 					<h4 class='panel-title'>
 						<strong>Troca de Senha</strong>
@@ -103,25 +106,20 @@
 							<form:label cssClass="control-label" path="usuario.loginName">login:</form:label>
 							<div class="input-group">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-								<form:input cssClass="form-control" path="usuario.loginName"/>
+								<form:input cssClass="form-control" path="usuario.loginName" maxlength="8" size="8" cssErrorClass="form-control danger"/>
 							</div>
 						</div>
 							<div class="col-md-4">
 							<form:label cssClass="control-label" path="usuario.senha">Senha:</form:label>
 							<div class="input-group">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-								<form:password cssClass="form-control" path="usuario.senha"/>
+								<form:password cssClass="form-control" maxlength="8" size="8" path="usuario.senha" cssErrorClass="form-control danger"/>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="panel-footer text-right">
-					<button type="submit" class="btn btn-danger">
-						<span class="glyphicon glyphicon-ok"></span>&nbsp;Salvar
-					</button>
-				</div>
 			</div>
 		</div>
 	</div>
-</form:form>
+
 </c:if>

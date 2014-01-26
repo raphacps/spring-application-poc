@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,39 +15,41 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="pessoa.loadByidUsuario", query="select p from Pessoa p where p.usuario.id = :id")})
-
-public class Pessoa implements Serializable, AppEntity {
+		@NamedQuery(name = "membro.loadByIdUsuario", query = "select m from Membro m where m.usuario.id = :id"),
+		@NamedQuery(name = "membro.findAll", query = "Select m from Membro m") })
+@Table(name = "Membro")
+public class Membro implements Serializable, AppEntity {
 
 	private static final long serialVersionUID = 198532763431970887L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotBlank(message="{nome.usuario.nao.vazio}")
+
+	@NotBlank(message = "O Usuario não pode ser vazio!")
 	private String nome;
-	@Range(min=1, max=100, message="A idade deve variar entre 0 e 100.")
+	@Range(min = 1, max = 100, message = "A idade deve variar entre 0 e 100.")
 	private String idade;
+	@Column(unique = true)
 	private String cpf;
 	private String rg;
 
-	@OneToMany(mappedBy = "pessoa", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "membro", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Telefone> telefones;
 
-	@OneToOne(optional = true, orphanRemoval = true, cascade=CascadeType.ALL)
+	@OneToOne(optional = true, orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 
-	
-
-	@OneToOne(optional = true, orphanRemoval = true, cascade=CascadeType.ALL)
+	@OneToOne(optional = true, orphanRemoval = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 
@@ -97,7 +100,7 @@ public class Pessoa implements Serializable, AppEntity {
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
 	}
-	
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -122,7 +125,7 @@ public class Pessoa implements Serializable, AppEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pessoa other = (Pessoa) obj;
+		Membro other = (Membro) obj;
 		if (cpf == null) {
 			if (other.cpf != null)
 				return false;

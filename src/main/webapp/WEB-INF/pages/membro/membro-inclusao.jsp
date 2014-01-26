@@ -36,6 +36,28 @@
 				<div class="panel-body">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
+							<h4 class='panel-title'>Minha tabela exemplo de membros<span class="glyphicon glyphicon-th pull-right"></span></h4>
+						</div>
+						<table id="membroTable" class='table table-striped table-bordered table-hover'>
+						    <thead>
+						        <tr>
+						            <th>Nome</th>
+						            <th>Idade</th>
+						            <th>CPF</th>
+						            <th>RG</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>	
+				
+			<div class="panel panel-default less-shadow">
+				<div class="panel-body">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
 							<h4 class='panel-title'>Minha tabela exemplo<span class="glyphicon glyphicon-th pull-right"></span></h4>
 						</div>
 						<table id="example" class='table table-striped table-bordered table-hover'>

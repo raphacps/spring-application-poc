@@ -1,15 +1,18 @@
 package br.com.tecnoone.app.service;
 
-import br.com.tecnoone.app.domain.entity.Pessoa;
+import java.util.List;
+
+import br.com.tecnoone.app.domain.entity.Membro;
 import br.com.tecnoone.app.domain.entity.Usuario;
 import br.com.tecnoone.app.service.core.CrudService;
 
-public interface PessoaService extends CrudService<Pessoa>{
+public interface MembroService extends CrudService<Membro>{
 	
 	/**
 	 * Carrega uma entidade Pessoa pela chave do usuario
 	 * @param usuario
 	 * @return
 	 */
-	Pessoa loadBy(Usuario usuario);
+	Membro loadBy(Usuario usuario);
+	List<Membro> findAll();
 }

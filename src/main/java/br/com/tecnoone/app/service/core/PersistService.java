@@ -11,7 +11,7 @@ public interface PersistService <T> {
 	 * Salva uma entidade no banco de dados
 	 * @param entity
 	 */
-    void persist(T entity);
+    void create(T entity);
     
     /**
      * Atualiza uma entidade no banco de dados
