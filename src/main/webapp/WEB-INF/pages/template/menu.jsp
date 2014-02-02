@@ -4,69 +4,299 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" style="height: 75px;" role="navigation">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand"  style="margin-top: -20px;" href="${pageContext.request.contextPath}/home">
-				<h2>
-					<span class="glyphicon glyphicon-leaf"></span>&nbsp;
-					<spring:message code="label.nome.projeto" />
-				</h2>
-			</a>
+<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="${pageContext.request.contextPath}/home" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							<spring:message code="label.nome.projeto" />
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					
+					<ul class="nav ace-nav">
+						<li>
+							<a href="${pageContext.request.contextPath}/home">
+								<span class="icon-home"></span>&nbsp;<spring:message code="label.home" />
+							</a>
+						</li>
+						<li>
+							<a href="#" id="sobre">
+								<span class="icon-info-sign"></span>&nbsp;<spring:message code="label.sobre" />
+							</a>
+						</li>
+						<li class="purple" >	
+							<a href="#contact">
+								<span class="icon-book"></span>&nbsp;<spring:message code="label.contato" />
+							</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<span class="icon-tasks"></span>&nbsp;Administrar <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="${pageContext.request.contextPath}/membro/prepararConsulta"><span class="icon-user"></span> Membros</a>
+								</li>
+								<li>
+									<a href="#"><span class="icon-usd"></span> Tesouraria</a>
+								</li>
+							</ul>
+						</li>
+						<li class="grey">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-tasks"></i>
+								<span class="badge badge-grey">4</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-ok"></i>
+									4 Tasks to complete
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Software Update</span>
+											<span class="pull-right">65%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:65%" class="progress-bar "></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Hardware Upgrade</span>
+											<span class="pull-right">35%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:35%" class="progress-bar progress-bar-danger"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Unit Testing</span>
+											<span class="pull-right">15%</span>
+										</div>
+
+										<div class="progress progress-mini ">
+											<div style="width:15%" class="progress-bar progress-bar-warning"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">Bug Fixes</span>
+											<span class="pull-right">90%</span>
+										</div>
+
+										<div class="progress progress-mini progress-striped active">
+											<div style="width:90%" class="progress-bar progress-bar-success"></div>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										See tasks with details
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="purple">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-bell-alt icon-animated-bell"></i>
+								<span class="badge badge-important">8</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-warning-sign"></i>
+									8 Notifications
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+												New Comments
+											</span>
+											<span class="pull-right badge badge-info">+12</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="btn btn-xs btn-primary icon-user"></i>
+										Bob just signed up as an editor ...
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+												New Orders
+											</span>
+											<span class="pull-right badge badge-success">+8</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
+												Followers
+											</span>
+											<span class="pull-right badge badge-info">+11</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										See all notifications
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="green">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-envelope icon-animated-vertical"></i>
+								<span class="badge badge-success">5</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-envelope-alt"></i>
+									5 Messages
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="estatico/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Alex:</span>
+												Ciao sociis natoque penatibus et auctor ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>a moment ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="estatico/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Susan:</span>
+												Vestibulum id ligula porta felis euismod ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>20 minutes ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="estatico/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Bob:</span>
+												Nullam quis risus eget urna mollis ornare ...
+											</span>
+
+											<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>3:15 pm</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="inbox.html">
+										See all messages
+										<i class="icon-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="estatico/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>Ol&aacute;,</small>
+									${membroSession.usuario.loginName}
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										Configura&ccedil;&otilde;es
+									</a>
+								</li>
+
+								<li>
+									<a href="${pageContext.request.contextPath}/membro/prepararAlteracao">
+										<i class="icon-user"></i>
+										Perfil
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="${pageContext.request.contextPath}/logout">
+										<i class="icon-off"></i>
+										Sair
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
 		</div>
-		<div class="collapse navbar-collapse">
-			
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="${pageContext.request.contextPath}/home">
-						<h4><span class="glyphicon glyphicon-home"></span>&nbsp;<spring:message code="label.home" /></h4>
-					</a>
-				</li>
-				<li>
-					<a href="#" id="sobre">
-						<h4><span class="glyphicon glyphicon-info-sign"></span>&nbsp;<spring:message code="label.sobre" /></h4>
-					</a>
-				</li>
-				<li>	
-					<a href="#contact">
-						<h4><span class="glyphicon glyphicon-book"></span>&nbsp;<spring:message code="label.contato" /></h4>
-					</a>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<h4><span class="glyphicon glyphicon-tasks"></span>&nbsp;Administrar <b class="caret"></b></h4>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="${pageContext.request.contextPath}/membro/prepararConsulta"><span class="glyphicon glyphicon-user"></span> Membros</a>
-						</li>
-						<li>
-							<a href="#"><span class="glyphicon glyphicon-usd"></span> Tesouraria</a>
-						</li>
-					</ul>
-				</li>
-				<li class='dropdown active'>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="sair">
-						<h4><span class="glyphicon glyphicon-user"></span>&nbsp;${membroSession.usuario.loginName}<b class="caret"></b></h4>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="${pageContext.request.contextPath}/membro/prepararAlteracao"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span> sair</a>
-						</li>
-					</ul>	
-				</li>
-			</ul>
-			
-		</div>
-		<!--/.nav-collapse -->
-	</div>
-</nav>
+

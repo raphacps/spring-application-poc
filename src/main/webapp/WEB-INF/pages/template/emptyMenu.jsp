@@ -4,19 +4,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container" style="margin-top: -25px">
-		<div class="navbar-header active">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">
-				<h2>
-					<span class="glyphicon glyphicon-leaf"></span>&nbsp;
-					<spring:message code="label.nome.projeto" /> - <spring:message code="label.descricao.projeto" />
-				</h2>
-			</a>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="${pageContext.request.contextPath}/home" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							<spring:message code="label.nome.projeto" />
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+			</div>
 		</div>
-		<!--/.nav-collapse -->
-	</div>
-</div>

@@ -1,0 +1,59 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "spring" uri = "http://www.springframework.org/tags" %>
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+
+<style type="text/css">
+
+.form-signin {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+</style>
+
+	
+		<form action='<spring:url value="verificaLogin"/>' method="POST">
+			<div class='panel panel-default less-shadow form-signin'>
+				<div class="panel-body">
+					<div class='panel panel-primary'>
+						<div class='panel-heading'>
+							<h6 class="panel-title">
+								<b><spring:message code="label.nome.projeto" /></b> 
+								<spring:message code="label.efetue.seu.login" />
+								<span class="glyphicon glyphicon-log-in pull-right"></span>
+							</h6>
+						</div>
+						<div class='panel-body'>
+							<div class="form-group">
+								<div class="input-group">
+								  <spring:message code='label.usuario' var="labeUsuario"/>
+								  <span class="input-group-addon"><i class="icon-user"></i></span>
+								  <input type="text" name="login" class="form-control input-lg" title='${labeUsuario}' placeholder="${labeUsuario}"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<spring:message code="label.senha" var="labelSenha"/>
+									<span class="input-group-addon"><i class="icon-lock"></i></span>
+				        			<input type="password" name="senha" class="form-control input-lg" placeholder="${labelSenha}" title="${labelSenha}"/>
+				        		</div>
+				        		<p class='help-block'><spring:message code="label.use.letras.maiusculas.minusculas.numerais" /></p>
+			        		</div>
+						</div>
+						<div class='panel-footer'>
+							<button class="btn btn-lg btn-primary btn-block" title='<spring:message code="label.entrar" />' type="submit">
+								<span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.entrar" />
+							</button>
+						</div>
+					</div>
+					<h6>
+						<p class='help-block pull-right'><a href="#"><spring:message code="label.esqueceu.senha" /></a></h6>
+					</p>
+				</div>
+			</div>
+		</form>
+		

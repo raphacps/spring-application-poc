@@ -58,17 +58,17 @@
 	<!-- Configurações de banco, usuario e senha -->
 	<!-- beans:bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 	    <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-	    <beans:property name="url" value="jdbc:mysql://localhost:3306/sigemem"/>
+	    <beans:property name="url" value="jdbc:mysql://localhost:3306/ichurch"/>
 	    <beans:property name="username" value="root"/>
 	    <beans:property name="password" value=""/>
 	</beans:bean -->
 
 	<beans:bean id="mysqlDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <beans:property name="jndiName" value="java:/sigemem" />
+        <beans:property name="jndiName" value="java:/ichurch" />
     </beans:bean>
 
 	<beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-	  <beans:property name="persistenceUnitName" value="sigemem" />
+	  <beans:property name="persistenceUnitName" value="ichurch" />
 	  <beans:property name="dataSource" ref="mysqlDataSource" />
 	  <beans:property name="jpaVendorAdapter">
 	    <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -92,7 +92,7 @@
 
 	<beans:bean id="handlerExceptionResolver " class="br.com.tecnoone.app.presentation.controller.HandlerExceptionResolver">
         <!-- See note below on how this interacts with Spring Boot -->
-        <beans:property name="defaultErrorView" value="errorPage"/>
+        <beans:property name="defaultErrorView" value="error-500"/>
         <beans:property name="exceptionAttribute" value="ex"/>
 
         <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->

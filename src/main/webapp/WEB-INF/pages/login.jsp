@@ -4,56 +4,200 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix = "spring" uri = "http://www.springframework.org/tags" %>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>IChurch - P&aacute;gina de login</title>
 
-<style type="text/css">
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-.form-signin {
-  max-width: 400px;
-  margin: 0 auto;
-}
+		<!-- basic styles -->
 
+		<link href="estatico/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="estatico/css/font-awesome.min.css" />
 
-</style>
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="estatico/css/font-awesome-ie7.min.css" />
+		<![endif]-->
 
-	
-		<form action='<spring:url value="verificaLogin"/>' method="POST">
-			<div class='panel panel-default less-shadow form-signin'>
-				<div class="panel-body">
-					<div class='panel panel-primary'>
-						<div class='panel-heading'>
-							<h6 class="panel-title">
-								<b><spring:message code="label.nome.projeto" /></b> 
-								<spring:message code="label.efetue.seu.login" />
-								<span class="glyphicon glyphicon-log-in pull-right"></span>
-							</h6>
-						</div>
-						<div class='panel-body'>
-							<div class="form-group">
-								<div class="input-group">
-								  <spring:message code='label.usuario' var="labeUsuario"/>
-								  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-								  <input type="text" name="login" class="form-control input-lg" title='${labeUsuario}' placeholder="${labeUsuario}"/>
-								</div>
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="estatico/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="estatico/css/ace.min.css" />
+		<link rel="stylesheet" href="estatico/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="estatico/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="estatico/js/html5shiv.js"></script>
+		<script src="estatico/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<i class="icon-leaf green"></i>
+									<span class="white">Aplica&ccedil;&atilde;o</span>
+									<span class="red">IChurch</span>
+								</h1>
+								<h4 class="blue">&copy; Tecno-One Informatica LTDA-ME</h4>
 							</div>
-							<div class="form-group">
-								<div class="input-group">
-									<spring:message code="label.senha" var="labelSenha"/>
-									<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-				        			<input type="password" name="senha" class="form-control input-lg" placeholder="${labelSenha}" title="${labelSenha}"/>
-				        		</div>
-				        		<p class='help-block'><spring:message code="label.use.letras.maiusculas.minusculas.numerais" /></p>
-			        		</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="icon-coffee green"></i>
+												For favor, entre seu usu&aacute;rio e senha
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form action='<spring:url value="verificaLogin"/>' method="POST">
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<spring:message code='label.usuario' var="labeUsuario"/>
+															<input type="text" name="login" class="form-control" title='${labeUsuario}' placeholder="${labeUsuario}" />
+															<i class="icon-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<spring:message code="label.senha" var="labelSenha"/>
+															<input type="password" name="senha" class="form-control" placeholder="${labelSenha}" title="${labelSenha}" />
+															<i class="icon-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace" />
+															<span class="lbl"> Lembre-me</span>
+														</label>
+
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+															<i class="icon-key"></i>
+															Login
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+
+										</div><!-- /widget-main -->
+
+										<div class="toolbar clearfix">
+											<div>
+												<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
+													<i class="icon-arrow-left"></i>
+													Esqueci minha senha
+												</a>
+											</div>
+										</div>
+									</div><!-- /widget-body -->
+								</div><!-- /login-box -->
+
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="icon-key"></i>
+												Reenvio de senha
+											</h4>
+
+											<div class="space-6"></div>
+											<p>
+												Informe seu email e receba as instru&ccedil;&otilde;es
+											</p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="icon-envelope"></i>
+														</span>
+													</label>
+
+													<div class="clearfix">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+															<i class="icon-lightbulb"></i>
+															Envie!
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div><!-- /widget-main -->
+
+										<div class="toolbar center">
+											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+												Volte para o login
+												<i class="icon-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /widget-body -->
+								</div><!-- /forgot-box -->
+							</div><!-- /position-relative -->
 						</div>
-						<div class='panel-footer'>
-							<button class="btn btn-lg btn-primary btn-block" title='<spring:message code="label.entrar" />' type="submit">
-								<span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.entrar" />
-							</button>
-						</div>
-					</div>
-					<h6>
-						<p class='help-block pull-right'><a href="#"><spring:message code="label.esqueceu.senha" /></a></h6>
-					</p>
-				</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
 			</div>
-		</form>
-		
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='estatico/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='estatico/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='estatico/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			function show_box(id) {
+			 jQuery('.widget-box.visible').removeClass('visible');
+			 jQuery('#'+id).addClass('visible');
+			}
+		</script>
+	</body>
+</html>

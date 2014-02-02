@@ -58,7 +58,10 @@
 </fieldset>
 
 <fieldset>
-	<legend>Telefone</legend>
+	<legend>Telefone <button type="button" class="btn btn-default btn-sm">
+					  <span class="glyphicon glyphicon-plus"></span>
+					</button>
+	</legend>
 		<c:choose>
 			<c:when test="${param.page eq 'alteracao'}">
 				<c:forEach var="tels" items="telefones" varStatus="index">

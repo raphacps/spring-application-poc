@@ -3,8 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.tecnoone</groupId>
-	<artifactId>spring-application-poc</artifactId>
-	<name>spring-application-poc</name>
+	<name>ichurch</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -245,8 +244,9 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>spring-application-poc</finalName>
+		<finalName>ichurch</finalName>
 	</build>
-	<url>localhost:8080/spring-application-poc</url>
+	<url>localhost:8080/ichurch</url>
 	<description>Aplicação padrão para sistemas baseados em spring 3 com bootstrap 3 e jpa 2</description>
+	<artifactId>ichurch</artifactId>
 </project>

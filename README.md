@@ -1,4 +1,3 @@
-spring-application-poc
+IChurch
 ======================
-
-Template para aplicações Spring com bootstrap
+Projeto para gerenciamento de Igrejas
