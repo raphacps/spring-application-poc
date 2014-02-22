@@ -87,9 +87,7 @@
 	<context:component-scan base-package="br.com.tecnoone.app.dao.impl" />
 	<context:component-scan base-package="br.com.tecnoone.app.service.impl" />
 	<context:component-scan base-package="br.com.tecnoone.app.presentation.controller" />
-
-
-
+	
 	<beans:bean id="handlerExceptionResolver " class="br.com.tecnoone.app.presentation.controller.HandlerExceptionResolver">
         <!-- See note below on how this interacts with Spring Boot -->
         <beans:property name="defaultErrorView" value="error-500"/>
@@ -98,7 +96,4 @@
         <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
         <beans:property name="warnLogCategory" value="example.MvcLogger"/>
     </beans:bean>
-
-
-
 </beans:beans>

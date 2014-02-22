@@ -1,35 +1,19 @@
-package br.com.tecnoone.app.domain.entity;
+package br.com.tecnoone.app.domain.entity.embedabble;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Embeddable;
 
-@Entity
-@Table(name="Endereco")
-public class Endereco implements Serializable, AppEntity {
+@Embeddable
+public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = -7786887463998151846L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	private String cep;
 	private String estado;
 	private String rua;
 	private String bairro;
 	private String complemento;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getCep() {
 		return cep;
@@ -75,8 +59,12 @@ public class Endereco implements Serializable, AppEntity {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
 		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((complemento == null) ? 0 : complemento.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((rua == null) ? 0 : rua.hashCode());
 		return result;
 	}
 
@@ -89,29 +77,38 @@ public class Endereco implements Serializable, AppEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
+		if (bairro == null) {
+			if (other.bairro != null)
+				return false;
+		} else if (!bairro.equals(other.bairro))
+			return false;
 		if (cep == null) {
 			if (other.cep != null)
 				return false;
 		} else if (!cep.equals(other.cep))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (complemento == null) {
+			if (other.complemento != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!complemento.equals(other.complemento))
+			return false;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
+		if (rua == null) {
+			if (other.rua != null)
+				return false;
+		} else if (!rua.equals(other.rua))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Endereco [id=" + id + ", cep=" + cep + ", estado=" + estado
-				+ ", rua=" + rua + ", bairro=" + bairro + ", complemento="
-				+ complemento + "]";
-	}
-
-	@Override
-	public Object getPrimaryKey() {
-		return getId();
+		return "Endereco [cep=" + cep + ", estado=" + estado + ", rua=" + rua
+				+ ", bairro=" + bairro + ", complemento=" + complemento + "]";
 	}
 
 }

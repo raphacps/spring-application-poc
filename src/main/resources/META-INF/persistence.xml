@@ -11,12 +11,16 @@
 		
 		<class>br.com.tecnoone.app.domain.entity.Usuario</class>
 		<class>br.com.tecnoone.app.domain.entity.Membro</class>
-		<class>br.com.tecnoone.app.domain.entity.Endereco</class>
 		<class>br.com.tecnoone.app.domain.entity.Telefone</class>
+		<class>br.com.tecnoone.app.domain.entity.Igreja</class>
+		<class>br.com.tecnoone.app.domain.entity.Departamento</class>
+		<class>br.com.tecnoone.app.domain.entity.Cargo</class>
+		<class>br.com.tecnoone.app.domain.entity.IgrejaDepartamento</class>
+		<class>br.com.tecnoone.app.domain.entity.IgrejaDepartamentoCargo</class>
 		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
 		</properties>

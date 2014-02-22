@@ -1,32 +1,34 @@
 package br.com.tecnoone.app.domain.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
+
+import br.com.tecnoone.app.domain.entity.embedabble.Endereco;
 
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "membro.loadByIdUsuario", query = "select m from Membro m where m.usuario.id = :id"),
 		@NamedQuery(name = "membro.findAll", query = "Select m from Membro m") })
 @Table(name = "Membro")
-public class Membro implements Serializable, AppEntity {
+public class Membro implements AppEntity {
 
 	private static final long serialVersionUID = 198532763431970887L;
 
@@ -45,13 +47,16 @@ public class Membro implements Serializable, AppEntity {
 	@OneToMany(mappedBy = "membro", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Telefone> telefones;
 
-	@OneToOne(optional = true, orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_endereco")
+	@Embedded
 	private Endereco endereco;
 
 	@OneToOne(optional = true, orphanRemoval = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_igreja", nullable = false)
+	private Igreja igreja;
 
 	public Long getId() {
 		return id;
@@ -107,6 +112,14 @@ public class Membro implements Serializable, AppEntity {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}	
+	
+	public Igreja getIgreja() {
+		return igreja;
+	}
+
+	public void setIgreja(Igreja igreja) {
+		this.igreja = igreja;
 	}
 
 	@Override
@@ -146,5 +159,15 @@ public class Membro implements Serializable, AppEntity {
 	public Object getPrimaryKey() {
 		return getId();
 	}
+
+	@Override
+	public String toString() {
+		return "Membro [id=" + id + ", nome=" + nome + ", idade=" + idade
+				+ ", cpf=" + cpf + ", rg=" + rg + ", telefones=" + telefones
+				+ ", endereco=" + endereco + ", usuario=" + usuario
+				+ ", igreja=" + igreja + "]";
+	}
+	
+	
 
 }

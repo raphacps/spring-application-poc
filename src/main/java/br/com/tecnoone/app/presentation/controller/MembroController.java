@@ -23,7 +23,7 @@ import br.com.tecnoone.app.domain.entity.Membro;
 import br.com.tecnoone.app.service.MembroService;
 
 @Controller
-@RequestMapping(value="membro")
+@RequestMapping(value="/membro")
 @SessionAttributes("membroSession")
 public class MembroController {
 	public static final String PREPARAR_ALTERACAO = "membro-alteracao";

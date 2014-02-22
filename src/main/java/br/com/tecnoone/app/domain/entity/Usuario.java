@@ -1,7 +1,5 @@
 package br.com.tecnoone.app.domain.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +14,7 @@ import javax.persistence.Table;
 	@NamedQuery(name="login.findByLoginName", query="select u from Usuario u where u.loginName = :loginName"),
 	@NamedQuery(name="login.findAll", query="select u from Usuario u")})
 @Table(name="Usuario")
-public class Usuario implements Serializable, AppEntity{
+public class Usuario implements AppEntity{
     
 	private static final long serialVersionUID = -1023084253787111893L;
 	

@@ -24,17 +24,22 @@ public class Telefone implements Serializable, AppEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column
+	@Column(nullable = false)
 	private Integer ddd;
 
-	@Column
+	@Column(nullable = false)
 	private String numero;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_membro", nullable=false)
 	@JsonIgnore
 	private Membro membro;
-
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_igreja", nullable=false)
+	@JsonIgnore
+	private Igreja igreja;
+	
 	public long getId() {
 		return id;
 	}
@@ -65,6 +70,18 @@ public class Telefone implements Serializable, AppEntity {
 
 	public void setMembro(Membro membro) {
 		this.membro = membro;
+	}
+	
+	public Igreja getIgreja() {
+		return igreja;
+	}
+
+	public void setIgreja(Igreja igreja) {
+		this.igreja = igreja;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override
