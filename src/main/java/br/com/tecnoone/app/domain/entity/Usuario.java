@@ -9,7 +9,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-
 @NamedQueries({
 	@NamedQuery(name="login.findByLoginName", query="select u from Usuario u where u.loginName = :loginName"),
 	@NamedQuery(name="login.findAll", query="select u from Usuario u")})

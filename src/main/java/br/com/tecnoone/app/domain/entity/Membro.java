@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ForeignKey;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
@@ -52,10 +53,12 @@ public class Membro implements AppEntity {
 
 	@OneToOne(optional = true, orphanRemoval = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
+	@ForeignKey(name="usuarioPK")
 	private Usuario usuario;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_igreja", nullable = false)
+	@ForeignKey(name="igrejaPK")
 	private Igreja igreja;
 
 	public Long getId() {
@@ -164,8 +167,7 @@ public class Membro implements AppEntity {
 	public String toString() {
 		return "Membro [id=" + id + ", nome=" + nome + ", idade=" + idade
 				+ ", cpf=" + cpf + ", rg=" + rg + ", telefones=" + telefones
-				+ ", endereco=" + endereco + ", usuario=" + usuario
-				+ ", igreja=" + igreja + "]";
+				+ ", endereco=" + endereco + ", usuario=" + usuario + "]";
 	}
 	
 	

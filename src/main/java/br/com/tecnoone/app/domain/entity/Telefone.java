@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @Table(name="Telefone")
@@ -32,11 +33,13 @@ public class Telefone implements Serializable, AppEntity {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_membro", nullable=false)
+	@ForeignKey(name="membroPK")
 	@JsonIgnore
 	private Membro membro;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_igreja", nullable=false)
+	@ForeignKey(name="igrejaPK")
 	@JsonIgnore
 	private Igreja igreja;
 	

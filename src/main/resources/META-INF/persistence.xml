@@ -15,8 +15,6 @@
 		<class>br.com.tecnoone.app.domain.entity.Igreja</class>
 		<class>br.com.tecnoone.app.domain.entity.Departamento</class>
 		<class>br.com.tecnoone.app.domain.entity.Cargo</class>
-		<class>br.com.tecnoone.app.domain.entity.IgrejaDepartamento</class>
-		<class>br.com.tecnoone.app.domain.entity.IgrejaDepartamentoCargo</class>
 		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>

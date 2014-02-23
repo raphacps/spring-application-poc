@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.ForeignKey;
+
 import br.com.tecnoone.app.domain.entity.embedabble.Endereco;
 
 /**
@@ -37,10 +39,11 @@ public class Igreja implements AppEntity {
 	private String nome;
 
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "Congregacao", joinColumns = @JoinColumn(name = "id_igreja"), inverseJoinColumns = @JoinColumn(name = "id_congregacao"))
+	@JoinTable(name = "Sede_Congregacao", joinColumns = @JoinColumn(name = "id_sede"), inverseJoinColumns = @JoinColumn(name = "id_congregacao"))
+	@ForeignKey(name = "sedePK", inverseName = "congregacaoPK")
 	private List<Igreja> congrecacoes = new ArrayList<>();
 
-	@OneToMany(mappedBy = "igreja", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "igreja", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Telefone> telefones;
 
 	@Column(nullable = false)
@@ -52,8 +55,8 @@ public class Igreja implements AppEntity {
 	@OneToMany(mappedBy = "igreja", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Membro> membros;
 
-	@OneToMany(mappedBy = "pk.departamento", fetch = FetchType.LAZY)
-	private List<IgrejaDepartamento> igrejaDepartamentos;
+	@OneToMany(mappedBy = "igreja", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Departamento> departamentos;
 
 	public Long getId() {
 		return id;
@@ -123,16 +126,11 @@ public class Igreja implements AppEntity {
 	}
 
 	public List<Departamento> getDepartamentos() {
-		List<Departamento> departamentos = new ArrayList<>();
-		for (IgrejaDepartamento dep : igrejaDepartamentos) {
-			departamentos.add(dep.getPk().getDepartamento());
-		}
-
 		return departamentos;
 	}
 
-	public void setDepartamentos(List<IgrejaDepartamento> departamentos) {
-		this.igrejaDepartamentos = departamentos;
+	public void setDepartamentos(List<Departamento> departamentos) {
+		this.departamentos = departamentos;
 	}
 
 	@Override
@@ -170,8 +168,8 @@ public class Igreja implements AppEntity {
 		return "Igreja [id=" + id + ", denominacao=" + denominacao + ", nome="
 				+ nome + ", congrecacoes=" + congrecacoes + ", telefones="
 				+ telefones + ", cnpj=" + cnpj + ", endereco=" + endereco
-				+ ", membros=" + membros + ", departamentos="
-				+ igrejaDepartamentos + "]";
+				+ ", membros=" + membros + ", departamentos=" + departamentos
+				+ "]";
 	}
 
 }

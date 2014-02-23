@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.tecnoone.app.domain.entity.Membro;
-import br.com.tecnoone.app.domain.entity.Telefone;
 import br.com.tecnoone.app.domain.entity.Usuario;
 import br.com.tecnoone.app.domain.repository.PessoaRepository;
 import br.com.tecnoone.app.service.MembroService;
@@ -27,9 +26,6 @@ public class MembroServiceImpl implements MembroService {
 	@Override
 	@Transactional
 	public void create(Membro membro) {
-		for (Telefone telefone : membro.getTelefones()) {
-			telefone.setMembro(membro);
-		}
 		repository.create(membro);
 	}
 
@@ -53,9 +49,6 @@ public class MembroServiceImpl implements MembroService {
 	@Override
 	@Transactional
 	public Membro update(Membro membro) {
-		for (Telefone telefone : membro.getTelefones()) {
-			telefone.setMembro(membro);
-		}
 		return repository.update(membro);
 	}
 
