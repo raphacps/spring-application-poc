@@ -90,7 +90,7 @@
 	
 	<beans:bean id="handlerExceptionResolver " class="br.com.tecnoone.app.presentation.controller.HandlerExceptionResolver">
         <!-- See note below on how this interacts with Spring Boot -->
-        <beans:property name="defaultErrorView" value="error-500"/>
+        <beans:property name="defaultErrorView" value="erro-500"/>
         <beans:property name="exceptionAttribute" value="ex"/>
 
         <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->

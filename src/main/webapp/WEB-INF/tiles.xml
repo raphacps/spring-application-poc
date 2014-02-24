@@ -68,10 +68,8 @@
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"/>
 	</definition>
 	
-	<definition name="errorPage" extends="main">
-		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
-		<put-attribute name="menuVertical" value=""/>
-		<put-attribute name="body" value="/WEB-INF/pages/errorPage.jsp"/>
+	<definition name="erro-500" extends="main">
+		<put-attribute name="body" value="/WEB-INF/pages/error-500.jsp"/>
 	</definition>
 	
 </tiles-definitions>
