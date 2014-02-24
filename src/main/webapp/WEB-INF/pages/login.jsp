@@ -14,27 +14,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- basic styles -->
-
-		<link href="estatico/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="estatico/css/font-awesome.min.css" />
+		
+		<link href='<spring:url value="/estatico/css/bootstrap.min.css"/>'   rel="stylesheet" media="screen" />
+		<link href='<spring:url value="/estatico/css/font-awesome.min.css"/>'   rel="stylesheet" media="screen" />
 
 		<!--[if IE 7]>
-		  <link rel="stylesheet" href="estatico/css/font-awesome-ie7.min.css" />
+		  <link rel="stylesheet" href='<spring:url value="/estatico/css/font-awesome-ie7.min.css"/>' />
 		<![endif]-->
 
 		<!-- page specific plugin styles -->
 
 		<!-- fonts -->
 
-		<link rel="stylesheet" href="estatico/css/ace-fonts.css" />
+		<link rel="stylesheet" href='<spring:url value="/estatico/css/ace-fonts.css"/>' />		
 
 		<!-- ace styles -->
 
-		<link rel="stylesheet" href="estatico/css/ace.min.css" />
-		<link rel="stylesheet" href="estatico/css/ace-rtl.min.css" />
-
+		<link rel="stylesheet" href='<spring:url value="/estatico/css/ace.min.css"/>' />
+		<link rel="stylesheet" href='<spring:url value="/estatico/css/ace-rtl.min.css"/>' />
+		
 		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="estatico/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href='<spring:url value="/estatico/css/ace-ie.min.css"/>' />
 		<![endif]-->
 
 		<!-- inline styles related to this page -->
@@ -42,8 +42,8 @@
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
 		<!--[if lt IE 9]>
-		<script src="estatico/js/html5shiv.js"></script>
-		<script src="estatico/js/respond.min.js"></script>
+			<script src='<spring:url value="/estatico/js/html5shiv.js"/>'></script>	
+			<script src='<spring:url value="/estatico/js/respond.min.js"/>'></script>
 		<![endif]-->
 	</head>
 
@@ -70,7 +70,7 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="icon-coffee green"></i>
-												For favor, entre seu usu&aacute;rio e senha
+												Informe seu usu&aacute;rio e senha
 											</h4>
 
 											<div class="space-6"></div>

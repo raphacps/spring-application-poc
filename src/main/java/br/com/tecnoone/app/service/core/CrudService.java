@@ -1,5 +1,7 @@
 package br.com.tecnoone.app.service.core;
 
-public interface CrudService<T> extends PersistService<T>, ReaderService<T>{
+import br.com.tecnoone.app.domain.entity.AppEntity;
+
+public interface CrudService<T extends AppEntity> extends PersistService<T>, ReaderService<T>{
 
 }

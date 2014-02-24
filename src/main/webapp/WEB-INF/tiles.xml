@@ -7,6 +7,7 @@
 
 	<definition name="main" template="/WEB-INF/pages/template/main.jsp">
 		<put-attribute name="menu" value="/WEB-INF/pages/template/menu.jsp"/>
+		<put-attribute name="menuVertical" value="/WEB-INF/pages/template/menuVertical.jsp"/>
 		<put-attribute name="alert" value="/WEB-INF/pages/template/alert.jsp"/>
 		<put-attribute name="body" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/pages/template/footer.jsp"/>
@@ -63,11 +64,13 @@
 	
 	<definition name="signin" extends="main">
 		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
+		<put-attribute name="menuVertical" value=""/>
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"/>
 	</definition>
 	
 	<definition name="errorPage" extends="main">
 		<put-attribute name="menu" value="/WEB-INF/pages/template/emptyMenu.jsp"/>
+		<put-attribute name="menuVertical" value=""/>
 		<put-attribute name="body" value="/WEB-INF/pages/errorPage.jsp"/>
 	</definition>
 	

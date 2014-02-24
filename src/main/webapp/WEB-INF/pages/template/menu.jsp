@@ -201,7 +201,8 @@
 
 								<li>
 									<a href="#">
-										<img src="estatico/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+									
+										<img src='<spring:url value="/estatico/avatars/avatar.png"/>' class="msg-photo" alt="Alex's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -218,7 +219,7 @@
 
 								<li>
 									<a href="#">
-										<img src="estatico/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<img src='<spring:url value="/estatico/avatars/avatar3.png"/>' class="msg-photo" alt="Susan's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -235,7 +236,7 @@
 
 								<li>
 									<a href="#">
-										<img src="estatico/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<img src='<spring:url value="/estatico/avatars/avatar4.png"/>' class="msg-photo" alt="Bob's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -261,7 +262,7 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="estatico/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="<spring:url value="/estatico/avatars/user.jpg"/>" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Ol&aacute;,</small>
 									${membroSession.usuario.loginName}

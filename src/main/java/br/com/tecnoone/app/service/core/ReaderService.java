@@ -17,4 +17,10 @@ public interface ReaderService<T> {
      * @return
      */
     T load(T pk);
+    
+    /**
+     * Carrega uma lista de entidades
+     * @return
+     */
+    List<T> findAll();
 }

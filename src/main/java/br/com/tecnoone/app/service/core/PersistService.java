@@ -5,7 +5,7 @@ public interface PersistService <T> {
      * Deleta um registro do banco fisicamente
      * @param entity
      */
-	void delete(T entity);
+	void remove(T entity);
 	
 	/**
 	 * Salva uma entidade no banco de dados

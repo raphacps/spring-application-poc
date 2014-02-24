@@ -31,7 +31,7 @@ public class LoginController {
 	@RequestMapping(value = {"/login","/"}, method = RequestMethod.GET)
 	public String login() {
 		logger.info("acessando tela de login");		
-		return "signin";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

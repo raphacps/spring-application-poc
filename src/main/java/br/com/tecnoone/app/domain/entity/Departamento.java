@@ -1,5 +1,6 @@
 package br.com.tecnoone.app.domain.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,7 +31,7 @@ public class Departamento implements AppEntity {
 	}
 
 	@OneToMany(mappedBy = "departamento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Cargo> cargos;
+	private List<Cargo> cargos = new ArrayList<>();
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_igreja", nullable = false)
@@ -54,8 +55,10 @@ public class Departamento implements AppEntity {
 		return cargos;
 	}
 
-	public void setCargos(List<Cargo> cargos) {
-		this.cargos = cargos;
+	public void addCargo(Cargo... cargos) {
+		for(Cargo cargo : cargos){
+			this.cargos.add(cargo);
+		}
 	}
 
 	public Igreja getIgreja() {

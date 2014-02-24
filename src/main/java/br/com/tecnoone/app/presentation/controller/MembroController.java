@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.com.tecnoone.app.domain.entity.Membro;
-import br.com.tecnoone.app.service.MembroService;
+import br.com.tecnoone.app.service.core.CrudService;
 
 @Controller
 @RequestMapping(value="/membro")
@@ -33,7 +34,8 @@ public class MembroController {
 	private static final Logger logger = LoggerFactory.getLogger(MembroController.class);
 	
 	@Autowired
-	private MembroService membroService;
+	@Qualifier("genericServiceImpl")
+	private CrudService<Membro> membroService;
 	
 	
     @RequestMapping(value = "/prepararInclusao", method = RequestMethod.GET)

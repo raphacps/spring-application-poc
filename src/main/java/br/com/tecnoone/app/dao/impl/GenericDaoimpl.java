@@ -42,9 +42,8 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AppEntity> findAll(String namedQuery) {
-		Query query = entityManager.createNamedQuery(namedQuery);
-		return query.getResultList();
+	public List<AppEntity> findAll() {
+		return (List<AppEntity>) entityManager.createQuery("select * from " + AppEntity.class.getClass().toString());
 	}
 
 	@Override
@@ -58,5 +57,11 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 		}
 		
 		return (AppEntity) query.getSingleResult();
+	}
+
+	@Override
+	public List<AppEntity> findByExample(AppEntity example) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

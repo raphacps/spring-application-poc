@@ -2,19 +2,12 @@ package br.com.tecnoone.app.domain.repository;
 
 import java.util.HashMap;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import br.com.tecnoone.app.dao.Dao;
 import br.com.tecnoone.app.domain.entity.Usuario;
 
 @Repository
-public class UsuarioRepository{
-	
-	@Autowired
-	@Qualifier(value="genericDao")
-	private Dao<Usuario> dao;
+public class UsuarioRepository extends GenericRepositoryImpl<Usuario>{
 	
 	public Usuario loadByLoginName(Usuario login){
 		

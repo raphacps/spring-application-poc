@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.tecnoone.app.dao.Dao;
 import br.com.tecnoone.app.domain.entity.AppEntity;
+import br.com.tecnoone.app.domain.entity.Cargo;
+import br.com.tecnoone.app.domain.entity.Departamento;
 import br.com.tecnoone.app.domain.entity.Igreja;
+import br.com.tecnoone.app.domain.entity.Membro;
+import br.com.tecnoone.app.domain.entity.Usuario;
 
 @Controller
 public class TesteJpa {
@@ -19,7 +23,7 @@ public class TesteJpa {
 	@Transactional
 	public void testeServlet() {
 
-		/*Usuario usuario = new Usuario();
+		Usuario usuario = new Usuario();
 		usuario.setLoginName("Raphael");
 		usuario.setSenha("123456");
 		//dao.create(usuario);
@@ -48,27 +52,22 @@ public class TesteJpa {
 
 		Departamento departamento = new Departamento();
 		departamento.setDescricao("Louvor");
+		
+		Cargo cargo = new Cargo();
+		cargo.setDescricao("primeiro cargo");
+		cargo.setDepartamento(departamento);
+		
+		departamento.addCargo(cargo);
+		departamento.setIgreja(igrejaPai);
+		
 		dao.create(departamento);
 
-		IgrejaDepartamento igrejaDepartamento = new IgrejaDepartamento();
-		//IgrejaDepartamentoPK igrejaDepartamentoPK = new IgrejaDepartamentoPK();
-		igrejaDepartamento.setDepartamento(departamento);
-		igrejaDepartamento.setIgreja(igrejaPai);
-		//igrejaDepartamento.setPk(igrejaDepartamentoPK);
-
-		DataHoraInclusaoAtualizacao dataHora = new DataHoraInclusaoAtualizacao();
-		Calendar cal = Calendar.getInstance();
-		dataHora.setDataInclusao(cal);
-		dataHora.setDataAtualizacao(cal);
-		igrejaDepartamento.setDataHora(dataHora);
-		dao.create(igrejaDepartamento);*/
-
-		Igreja myIgreja = new Igreja();
+		/*Igreja myIgreja = new Igreja();
 		myIgreja.setId(2l);
 		myIgreja = (Igreja) dao.load(myIgreja);
 
 		//System.out.println(myIgreja.getDepartamentos().get(0).getDescricao());
-		System.out.println(myIgreja.getMembros());
+		System.out.println(myIgreja.getMembros());*/
 		System.out.println("testado!");
 	}
 }
