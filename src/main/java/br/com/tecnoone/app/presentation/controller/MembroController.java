@@ -27,6 +27,7 @@ import br.com.tecnoone.app.service.core.CrudService;
 @RequestMapping(value="/membro")
 @SessionAttributes("membroSession")
 public class MembroController {
+	public static final String HOME = "membro-home";
 	public static final String PREPARAR_ALTERACAO = "membro-alteracao";
 	private static final String CADASTRO = "membro-inclusao";
     private static final String PREPARAR_CONSULTA = "membro-consulta";
@@ -37,6 +38,10 @@ public class MembroController {
 	@Qualifier("genericServiceImpl")
 	private CrudService<Membro> membroService;
 	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(Model model) {
+		return HOME;
+	}
 	
     @RequestMapping(value = "/prepararInclusao", method = RequestMethod.GET)
 	public String prepararInclusao(Model model) {

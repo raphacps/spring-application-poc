@@ -18,6 +18,7 @@
 		<link href='<spring:url value="/estatico/css/ace-fonts.css"/>'   rel="stylesheet" media="screen" />
 		<link href='<spring:url value="/estatico/css/font-awesome.min.css"/>'   rel="stylesheet" media="screen" />
 		<link href='<spring:url value="/estatico/css/jquery-ui-1.10.3.full.min.css"/>' rel="stylesheet" media="screen" />
+		<link href='<spring:url value="/estatico/css/application.css"/>' rel="stylesheet" media="screen" />
 		<tiles:useAttribute id="list" name="cssfilesList" classname="java.util.List" />	
 		<c:forEach var="cssfileName" items="${list}">
 			<link rel="styleSheet" href='${cssfileName}' type="text/css" media="screen"/>	

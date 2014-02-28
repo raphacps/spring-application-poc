@@ -1,9 +1,15 @@
 var application = new Application();
 // Configuração de tooltips
-$('.container').tooltip({
+
+$('.page-content').tooltip({
 	selector : "*",
-	placement : 'auto top'
-});
+	show: {
+		effect: "slideDown",
+		delay: 250
+	}
+})
+
+
 
 
 $(function() {

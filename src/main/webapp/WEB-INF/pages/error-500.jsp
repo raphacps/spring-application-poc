@@ -10,7 +10,7 @@
 												<i class="icon-random"></i>
 												500
 											</span>
-											Algo errado aconteceu... testeee
+											Algo errado aconteceu...
 										</h1>
 
 										<hr />
@@ -19,23 +19,16 @@
 											<i class="icon-wrench icon-animated-wrench bigger-125"></i>
 											nisso!
 										</h3>
-										
-										<h4 class="lighter smaller">Por favor contate o administrador informado o codigo <span class="label label-primary">${uuid}</span></h4>
-
+									
 										<div class="space"></div>
 
 										<div>
-											<h4 class="lighter smaller">Meanwhile, try one of the following:</h4>
+											<h4 class="lighter smaller">Enquanto isso, pedimos que execute o procedimento abaixo:</h4>
 
 											<ul class="list-unstyled spaced inline bigger-110 margin-15">
 												<li>
 													<i class="icon-hand-right blue"></i>
-													Read the faq
-												</li>
-
-												<li>
-													<i class="icon-hand-right blue"></i>
-													Give us more info on how this specific error occurred!
+													Informe-nos o código <span class="label label-primary">${uuid}</span>
 												</li>
 											</ul>
 										</div>
@@ -46,12 +39,12 @@
 										<div class="center">
 											<a href="#" class="btn btn-grey">
 												<i class="icon-arrow-left"></i>
-												Go Back
+												Voltar
 											</a>
 
 											<a href="#" class="btn btn-primary">
-												<i class="icon-dashboard"></i>
-												Dashboard
+												<i class="icon-home"></i>
+												Home
 											</a>
 										</div>
 									</div>

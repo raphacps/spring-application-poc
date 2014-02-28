@@ -7,7 +7,6 @@
 
 <form:hidden path="id" />
 <form:hidden path="usuario.id" />
-<form:hidden path="endereco.id" />
 <div class="form-group row">	
 	<div class="col-md-10">
 		<form:label path="nome" >Nome:</form:label> 

@@ -32,23 +32,20 @@
 								<span class="icon-info-sign"></span>&nbsp;<spring:message code="label.sobre" />
 							</a>
 						</li>
-						<li class="purple" >	
-							<a href="#contact">
-								<span class="icon-book"></span>&nbsp;<spring:message code="label.contato" />
+						<li>
+							<a href="${pageContext.request.contextPath}/membro/home" id="igreja">
+								<span class="icon-hospital"></span>&nbsp;Igreja - <small>administração</small>
 							</a>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<span class="icon-tasks"></span>&nbsp;Administrar <b class="caret"></b>
+						<li>
+							<a href="#">
+								<span class="icon-archive"></span>&nbsp;Patrimônio
 							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="${pageContext.request.contextPath}/membro/prepararConsulta"><span class="icon-user"></span> Membros</a>
-								</li>
-								<li>
-									<a href="#"><span class="icon-usd"></span> Tesouraria</a>
-								</li>
-							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<span class="icon-usd"></span>&nbsp;Financeiro
+							</a>
 						</li>
 						<li class="grey">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">

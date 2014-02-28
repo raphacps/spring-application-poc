@@ -23,6 +23,10 @@
 		<put-attribute name="body" value="/WEB-INF/pages/home.jsp"/>
 	</definition>
 	
+	<definition name="membro-home" extends="main">
+		<put-attribute name="body" value="/WEB-INF/pages/membro/membro-home.jsp"/>
+	</definition>
+	
 	<definition name="membro-inclusao" extends="main">
 		<put-attribute name="body" value="/WEB-INF/pages/membro/membro-inclusao.jsp"/>
 		<put-list-attribute name="breadcrumbsList">

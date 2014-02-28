@@ -30,9 +30,6 @@
 						<button title="${limparCampos}" type="reset" class="btn btn-default">
 							<span class="glyphicon glyphicon-remove"></span>&nbsp;Limpar
 						</button>
-						<button type="submit" class="btn btn-primary">
-							<span class="glyphicon glyphicon-ok"></span>&nbsp;Incluir
-						</button>
 						<button type="submit" class="btn btn-primary" formaction="consultar">
 							<span class="glyphicon glyphicon-search"></span>&nbsp;Pesquisar
 						</button>
