@@ -43,6 +43,14 @@ public class TesteJpa {
 		membro.setIgreja(igreja);
 		dao.create(membro);
 		
+		membro = new Membro();
+		membro.setCpf("9875646");
+		membro.setIdade("29");
+		membro.setNome("Ana Lucia");
+		//membro.setUsuario(usuario);
+		membro.setIgreja(igreja);
+		dao.create(membro);
+		
 		Igreja igrejaPai = new Igreja();
 		igrejaPai.setDenominacao("El elion");
 		igrejaPai.setNome("Igreja Matriz");

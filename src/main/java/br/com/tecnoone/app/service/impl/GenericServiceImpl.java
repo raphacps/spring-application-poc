@@ -14,7 +14,7 @@ import br.com.tecnoone.app.service.core.CrudService;
 @Service(value = "genericServiceImpl")
 public class GenericServiceImpl<T extends AppEntity> implements CrudService<T>{
 
-	@Autowired(required=false)
+	@Autowired
 	@Qualifier("genericRepositoryImpl")
 	protected GenericRepositoryImpl<T> repository;
 	
@@ -49,8 +49,8 @@ public class GenericServiceImpl<T extends AppEntity> implements CrudService<T>{
 	}
 
 	@Override
-	public List<T> findAll() {
-		return repository.findAll();
+	public List<T> findAll(Class<T> entity) {
+		return repository.findAll(entity);
 	}
 
 }

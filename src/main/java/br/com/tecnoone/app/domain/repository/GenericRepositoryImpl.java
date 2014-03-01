@@ -11,7 +11,7 @@ import br.com.tecnoone.app.dao.Dao;
 import br.com.tecnoone.app.domain.entity.AppEntity;
 
 @Repository(value="genericRepositoryImpl")
-public abstract class GenericRepositoryImpl<T extends AppEntity> {
+public class GenericRepositoryImpl<T extends AppEntity> {
 	
 	@Autowired
 	@Qualifier("genericDao")
@@ -37,8 +37,8 @@ public abstract class GenericRepositoryImpl<T extends AppEntity> {
 		dao.remove(entity);
 	}
 
-	public List<T> findAll() {
-		return dao.findAll();
+	public List<T> findAll(Class<T> entity) {
+		return dao.findAll(entity);
 	}
 
 	public Integer getCount(String namedQuery) {

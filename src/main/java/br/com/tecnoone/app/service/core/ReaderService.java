@@ -22,5 +22,5 @@ public interface ReaderService<T> {
      * Carrega uma lista de entidades
      * @return
      */
-    List<T> findAll();
+    List<T> findAll(Class<T> entity);
 }

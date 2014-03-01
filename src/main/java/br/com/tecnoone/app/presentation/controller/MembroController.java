@@ -58,14 +58,14 @@ public class MembroController {
     @RequestMapping(value="/consultar", method=RequestMethod.GET)
     @ResponseBody
     public List<Membro> consultar(){
-    	return membroService.findAll();
+    	return membroService.findAll(Membro.class);
     }
     
     @RequestMapping(value="/consultarMembros", method=RequestMethod.GET)
     @ResponseBody
     public Map<String,List<Membro>> consultarMembros(){
     	Map<String,List<Membro>> mem = new HashMap<String, List<Membro>>();
-    	mem.put("aaData", membroService.findAll());
+    	mem.put("aaData", membroService.findAll(Membro.class));
     	return mem;
     }
 	

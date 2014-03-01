@@ -23,11 +23,10 @@ $(function() {
 
 $(function() {
     $('#membroTable').dataTable({
-    	"sDom": "rt<'col-md-5'il><'pagination col-md-7 text-right'p>",
-    	"sPaginationType": "full_numbers",
-    	"bPaginate": true,
+    	/*"sPaginationType": "full_numbers",*/
+    	/*"bPaginate": true,*/
     	"oLanguage": application.DATATABLE_I18N_CONFIGURATIONS,
-    	"bProcessing": true,
+    	/*"bProcessing": true,*/
         "sAjaxSource": 'consultarMembros',
         "aoColumns": [
                       { "mData": "nome" },

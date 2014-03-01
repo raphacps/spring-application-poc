@@ -29,8 +29,12 @@
 
 .primary {
 	color: #ffffff;
-	background-color: #428bca;
+	background-color: #307ecc/* #428bca*/;
 	border-color: #357ebd;
+}
+
+.panel-primary>.panel-heading{
+	background-color: #307ecc;
 }
 
 /*Fim da configuração de modal*/
@@ -72,4 +76,9 @@
 /*Controle de sombra*/
 .less-shadow {
 	box-shadow: 0px 1px 1px #fff inset, 0px 0px 5px #D8D8D8;
+}
+
+.dataTables_wrapper .row:last-child{
+	border-bottom-right-radius : 3px;
+	border-bottom-left-radius : 3px;
 }

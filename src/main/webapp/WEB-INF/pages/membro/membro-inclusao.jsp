@@ -11,7 +11,7 @@
 						<div class="panel-heading">
 							<h4 class='panel-title'>
 								<spring:message code="label.incluir" var="labelIncluir" />
-								<strong><spring:message code="label.nome.funcionalidade.membro" /> - </strong>${labelIncluir}<span title="${labelIncluir}" class="glyphicon glyphicon-file pull-right"></span>
+								<i class="icon-group">&nbsp;</i><strong><spring:message code="label.nome.funcionalidade.membro" /></strong>&nbsp;<i class="icon-double-angle-right"></i>&nbsp;${labelIncluir}&nbsp;<span title="${labelIncluir}" class="glyphicon glyphicon-file pull-right"></span>
 							</h4>
 						</div>
 						<div class="panel-body">
@@ -31,249 +31,35 @@
 					</div>
 				</div>
 			</div>
-				
-			<div class="panel panel-default less-shadow">
-				<div class="panel-body">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h4 class='panel-title'>Minha tabela exemplo de membros<span class="glyphicon glyphicon-th pull-right"></span></h4>
-						</div>
-						<table id="membroTable" class='table table-striped table-bordered table-hover'>
-						    <thead>
-						        <tr>
-						            <th>Nome</th>
-						            <th>Idade</th>
-						            <th>CPF</th>
-						            <th>RG</th>
-						        </tr>
-						    </thead>
-						    <tbody>
-						    </tbody>
-						</table>
-					</div>
-				</div>
-			</div>	
-				
-			<div class="panel panel-default less-shadow">
-				<div class="panel-body">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h4 class='panel-title'>Minha tabela exemplo<span class="glyphicon glyphicon-th pull-right"></span></h4>
-						</div>
-						<table id="example" class='table table-striped table-bordered table-hover'>
-						    <thead>
-						        <tr>
-						            <th>Column 1</th>
-						            <th>Column 2</th>
-						            <th>etc</th>
-						        </tr>
-						    </thead>
-						    <tbody>
-						        <tr>
-						            <td>Row 1 Data 1</td>
-						            <td>Row 1 Data 2</td>
-						            <td>etc</td>
-						        </tr>
-						        <tr>
-						            <td>Row 2 Data 1</td>
-						            <td>Row 2 Data 2</td>
-						            <td>etc</td>
-						        </tr>
-						    </tbody>
-						</table>
-					</div>
-				</div>
-			</div>	
 			
 			<div class="panel panel-default less-shadow">
 				<div class="panel-body">
+					<h3 class="header smaller lighter blue">Resultado da busca</h3>
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h4 class='panel-title'>Minha tabela exemplo<span class="glyphicon glyphicon-th pull-right"></span></h4>
+							<h4 class='panel-title'>
+								Resultado para busca de membros
+							</h4>
 						</div>
-							<table  id="meuTeste" class='table table-striped table-bordered table-hover'>
+						<div class="panel-body" style="padding: 0px;">
+							
+							<table id="membroTable" class='table table-striped table-bordered table-hover'>
 							    <thead>
 							        <tr>
-							            <th>Column 1</th>
-							            <th>Column 2</th>
-							            <th>etc</th>
+							            <th>Nome</th>
+							            <th>Idade</th>
+							            <th>CPF</th>
+							            <th>RG</th>
 							        </tr>
 							    </thead>
 							    <tbody>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 1 Data 1</td>
-							            <td>Row 1 Data 2</td>
-							            <td>etc</td>
-							        </tr>
-							        <tr>
-							            <td>Row 2 Data 1</td>
-							            <td>Row 2 Data 2</td>
-							            <td>etc</td>
-							        </tr>
 							    </tbody>
 							</table>
+						
 						</div>
 					</div>
 				</div>
+			</div>
+			
 		</form:form>
 	  

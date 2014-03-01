@@ -96,7 +96,7 @@
 						<c:if test="${not empty list}">
 							<!-- buscando as migalhas de pão dinâmicamente do tiles -->
 							<!-- p class="text-muted">Você est&aacute; em:</p -->
-							<ul class="breadcrumb less-shadow">
+							<ul class="breadcrumb">
 						</c:if>
 
 						<c:forEach var="breadcrumbName" items="${list}" varStatus="index">
@@ -268,8 +268,8 @@
 		<script src='<spring:url value="/estatico/js/bootstrap.min.js"/>'></script>
 		<script src='<spring:url value="/estatico/js/application.js"/>'></script>
 		<script src='<spring:url value="/estatico/js/pages/home.js"/>'></script>
-		<script src='<spring:url value="/estatico/js/jquery.dataTables.bootstrap.js"/>'></script>
 		<script src='<spring:url value="/estatico/js/jquery.dataTables.min.js"/>'></script>
+		<script src='<spring:url value="/estatico/js/jquery.dataTables.bootstrap.js"/>'></script>
 		
 		<tiles:useAttribute id="list" name="jsfilesList" classname="java.util.List" />	
 		<c:forEach var="jsfileName" items="${list}">

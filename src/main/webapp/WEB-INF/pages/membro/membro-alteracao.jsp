@@ -13,7 +13,7 @@
 				<div class="panel-heading">
 					<h4 class='panel-title'>
 						<spring:message code="label.Alterar" var="labelAlterar" />
-						<strong><spring:message code="label.nome.funcionalidade.membro"/> - </strong>${labelAlterar}<span title="${labelAlterar}" class="glyphicon glyphicon-edit pull-right"></span>
+						<i class="icon-group"></i>&nbsp;<strong><spring:message code="label.nome.funcionalidade.membro"/>&nbsp;<i class="icon-double-angle-right"></i>&nbsp;</strong>${labelAlterar}<span title="${labelAlterar}" class="glyphicon glyphicon-edit pull-right"></span>
 					</h4>
 				</div>
 				<div class="panel-body">

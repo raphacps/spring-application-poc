@@ -7,6 +7,7 @@
 
 <form:hidden path="id" />
 <form:hidden path="usuario.id" />
+<h3 class="header smaller lighter blue">Dados Pessoais</h3>
 <div class="form-group row">	
 	<div class="col-md-10">
 		<form:label path="nome" >Nome:</form:label> 
@@ -28,8 +29,7 @@
 	</div>
 </div>
 
-<fieldset>
-	<legend>Endereço</legend>
+<h3 class="header smaller lighter blue">Endereço</h3>
 	<div class="form-group row">
 		<div class="col-md-2">
 			<label for="cep">CEP:</label> 
@@ -54,43 +54,36 @@
 			<form:input id="estado" cssClass="form-control" path="endereco.estado"/>
 		</div>
 	</div>
-</fieldset>
 
-<fieldset>
-	<legend>Telefone <button type="button" class="btn btn-default btn-sm">
-					  <span class="glyphicon glyphicon-plus"></span>
-					</button>
-	</legend>
-		<c:choose>
-			<c:when test="${param.page eq 'alteracao'}">
-				<c:forEach var="tels" items="telefones" varStatus="index">
-					<form:hidden path="telefones[${index.count-1}].id" />
-					<div class="form-group row">
-						<div class="col-md-2">
-							<form:label path="telefones[${index.count-1}].ddd">ddd:</form:label>
-							<form:input cssClass="form-control" path="telefones[${index.count-1}].ddd" />
-						</div>
-						<div class="col-md-10">
-							<form:label path="telefones[${index.count-1}].numero">Numero:</form:label>
-							<form:input cssClass="form-control" path="telefones[${index.count-1}].numero" />
-						</div>
-					</div>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
+	<h3 class="header smaller lighter blue">Telefone</h3>
+	<c:choose>
+		<c:when test="${param.page eq 'alteracao'}">
+			<c:forEach var="tels" items="telefones" varStatus="index">
 				<div class="form-group row">
 					<div class="col-md-2">
-						<form:label path="telefones[0].ddd">ddd:</form:label>
-						<form:input cssClass="form-control" path="telefones[0].ddd" />
+						<form:label path="telefones[${index.count-1}].ddd">ddd:</form:label>
+						<form:input cssClass="form-control" path="telefones[${index.count-1}].ddd" />
 					</div>
 					<div class="col-md-10">
-						<form:label path="telefones[0].numero">Numero:</form:label>
-						<form:input cssClass="form-control" path="telefones[0].numero" />
+						<form:label path="telefones[${index.count-1}].numero">Numero:</form:label>
+						<form:input cssClass="form-control" path="telefones[${index.count-1}].numero" />
 					</div>
 				</div>
-			</c:otherwise>
-		</c:choose>
-</fieldset>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<div class="form-group row">
+				<div class="col-md-2">
+					<form:label path="telefones[0].ddd">ddd:</form:label>
+					<form:input cssClass="form-control" path="telefones[0].ddd" />
+				</div>
+				<div class="col-md-10">
+					<form:label path="telefones[0].numero">Numero:</form:label>
+					<form:input cssClass="form-control" path="telefones[0].numero" />
+				</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
 
 <c:if test="${param.page eq 'alteracao'}">
 

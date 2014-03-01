@@ -42,8 +42,8 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AppEntity> findAll() {
-		return (List<AppEntity>) entityManager.createQuery("select * from " + AppEntity.class.getClass().toString());
+	public List<AppEntity> findAll(Class<AppEntity> entity) {
+		return (List<AppEntity>) entityManager.createQuery("select entity from " + entity.getSimpleName() + " entity").getResultList();
 	}
 
 	@Override
