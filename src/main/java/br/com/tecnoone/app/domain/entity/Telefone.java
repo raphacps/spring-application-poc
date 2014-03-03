@@ -2,6 +2,7 @@ package br.com.tecnoone.app.domain.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,14 +32,14 @@ public class Telefone implements Serializable, AppEntity {
 	@Column(nullable = false)
 	private String numero;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_membro", nullable=false)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_membro")
 	@ForeignKey(name="membroPK")
 	@JsonIgnore
 	private Membro membro;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_igreja", nullable=false)
+	@JoinColumn(name="id_igreja")
 	@ForeignKey(name="igrejaPK")
 	@JsonIgnore
 	private Igreja igreja;

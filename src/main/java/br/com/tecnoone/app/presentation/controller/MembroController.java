@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.tecnoone.app.domain.entity.Membro;
 import br.com.tecnoone.app.service.core.CrudService;
@@ -50,8 +51,24 @@ public class MembroController {
 		return CADASTRO;
 	}
     
+    @RequestMapping(value="/salvar", method=RequestMethod.POST)
+	public String salvar(@ModelAttribute("membro") @Valid Membro membro, BindingResult result, Model model, RedirectAttributes redirectAttrs){
+		if(result.hasErrors()){
+			return PREPARAR_ALTERACAO;
+		}		
+		membroService.create(membro);
+		redirectAttrs.addFlashAttribute("mensagem","Salvo com sucesso!");
+		return "redirect:prepararInclusao";
+	}
+    
+    @RequestMapping(value="/prepararAlteracao", method=RequestMethod.GET)
+	public String prepararAlteracao(ModelMap model){
+		
+		return PREPARAR_ALTERACAO;
+	}	
+    
     @RequestMapping(value="/prepararConsulta", method=RequestMethod.GET)
-    public String prepararConsulta(@ModelAttribute("membro") Membro membro){
+    public String prepararConsulta(Membro membro){
     	return PREPARAR_CONSULTA;
     }
     
@@ -69,31 +86,15 @@ public class MembroController {
     	return mem;
     }
 	
-	@RequestMapping(value="/prepararAlteracao", method=RequestMethod.GET)
-	public String prepararAlteracao(ModelMap model){
-		
-		model.addAttribute("membro", model.get("membroSession"));
-		return PREPARAR_ALTERACAO;
-	}
 	
-	@RequestMapping(value="/salvar", method=RequestMethod.POST)
-	public String salvar(@ModelAttribute("membro") @Valid Membro membro, BindingResult result){
-		if(result.hasErrors()){
-			return PREPARAR_ALTERACAO;
-		}
-		
-		membroService.create(membro);
-		
-		return "redirect:prepararAlteracao";
-	}
 	
 	@RequestMapping(value="/alterar", method=RequestMethod.POST)
-	public String alterar(@ModelAttribute("membro") @Valid Membro membro, BindingResult result, ModelMap model){
+	public String alterar(@ModelAttribute("membro") @Valid Membro membro, BindingResult result, ModelMap model, RedirectAttributes redirectAttrs){
 		if(result.hasErrors()){
 			return PREPARAR_ALTERACAO;
 		}
-		model.addAttribute("membroSession",membroService.update(membro));
 		
+		redirectAttrs.addFlashAttribute("mensagem","Alterado com sucesso!");
 		return "redirect:prepararAlteracao";
 	}
 }

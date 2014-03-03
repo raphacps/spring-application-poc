@@ -9,6 +9,6 @@
 		<div class="page-header">
          		<h1>Página home do projeto com tiles</h1>
        	</div>
-       	<p class="lead">Este é um <code>template</code> de página inicial de um projeto web. </p>
+       	<p class="lead">Este é um <code>template</code> de página inicial de um projeto web. ${mensagem}  aaaa</p>
 	
 		

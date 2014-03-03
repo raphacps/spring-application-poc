@@ -10,7 +10,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title">
-					<strong><spring:message	code="label.nome.projeto" /></strong> - <spring:message code="label.nome.funcionalidade" />
+					<strong>${membroSession.igreja.nome}</strong>
 				</h4>
 			</div>
 			<div class="modal-body row">

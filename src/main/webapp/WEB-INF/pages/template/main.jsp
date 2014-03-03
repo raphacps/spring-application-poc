@@ -258,10 +258,6 @@
 					
 		</script>
 		
-		
-		
-		
-		
 		<script src='<spring:url value="/estatico/js/ace-elements.min.js"/>'></script>
 		<script src='<spring:url value="/estatico/js/ace.min.js"/>'></script>
 		<script src='<spring:url value="/estatico/js/typeahead-bs2.min.js"/>'></script>
@@ -275,5 +271,12 @@
 		<c:forEach var="jsfileName" items="${list}">
 			<script src='<spring:url value='${jsfileName}' />'></script>	
 		</c:forEach>
+	
+	<c:if test="${not empty mensagem}">
+		<script type="text/javascript">
+			var application = new Application();
+			application.alertSuccess('<c:out value="${mensagem}" />');		
+		</script>
+	</c:if>		
 	</body>
 </html>

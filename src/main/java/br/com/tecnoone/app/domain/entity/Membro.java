@@ -57,7 +57,7 @@ public class Membro implements AppEntity {
 	@ForeignKey(name="usuarioPK")
 	private Usuario usuario;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_igreja", nullable = false)
 	@ForeignKey(name="igrejaPK")
 	@JsonIgnore

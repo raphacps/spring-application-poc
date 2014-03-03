@@ -7,6 +7,7 @@
 
 <form:hidden path="id" />
 <form:hidden path="usuario.id" />
+<input type="hidden" name="igreja.id" id="igreja.id" value="${membroSession.igreja.id}">
 <h3 class="header smaller lighter blue">Dados Pessoais</h3>
 <div class="form-group row">	
 	<div class="col-md-10">

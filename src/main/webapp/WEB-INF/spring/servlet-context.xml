@@ -94,6 +94,6 @@
         <beans:property name="exceptionAttribute" value="ex"/>
 
         <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
-        <beans:property name="warnLogCategory" value="example.MvcLogger"/>
+        <beans:property name="warnLogCategory" value="ichurch.MvcLogger"/>
     </beans:bean>
 </beans:beans>
