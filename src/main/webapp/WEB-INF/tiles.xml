@@ -33,7 +33,7 @@
 			<add-attribute value="home|Home"/>
 			<add-attribute value="#|Administrar"/>
 			<add-attribute value="membro/prepararInclusao|Membro"/>
-			<add-attribute value="Consultar"/>
+			<add-attribute value="Inserir"/>
 		</put-list-attribute>
 		<put-list-attribute name="menuOptionsList">
 			<add-attribute value="Consultar"/>
@@ -51,6 +51,9 @@
 			<add-attribute value="#|Administrar"/>
 			<add-attribute value="membro/pesquisar|Membro"/>
 			<add-attribute value="Pesquisar"/>
+		</put-list-attribute>
+		<put-list-attribute name="jsfilesList">
+			<add-attribute value="/estatico/js/pages/membro/membro-pesquisa.js"/>
 		</put-list-attribute>
 	</definition>
 	

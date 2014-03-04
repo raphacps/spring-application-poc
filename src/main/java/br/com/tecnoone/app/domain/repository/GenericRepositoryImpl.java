@@ -1,6 +1,5 @@
 package br.com.tecnoone.app.domain.repository;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +28,6 @@ public class GenericRepositoryImpl<T extends AppEntity> {
 		return dao.load(pk);
 	}
 
-	public T loadByNamedQuery(String namedQuery, HashMap<String, Object> params) {
-		return dao.loadByNamedQuery(namedQuery, params);
-	}
-
 	public void remove(T entity) {
 		dao.remove(entity);
 	}
@@ -46,6 +41,6 @@ public class GenericRepositoryImpl<T extends AppEntity> {
 	}
 	
 	public List<T> findBy(T example) {
-		return dao.findByExample(example);
+		return null;
 	}
 }

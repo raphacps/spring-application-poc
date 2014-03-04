@@ -21,15 +21,13 @@ public class GenericServiceImpl<T extends AppEntity> implements CrudService<T>{
 	@Override
 	@Transactional
 	public void remove(T entity) {
-		repository.remove(entity);
-		
+		repository.remove(entity);		
 	}
 
 	@Override
 	@Transactional
 	public void create(T entity) {
-		repository.create(entity);
-		
+		repository.create(entity);		
 	}
 
 	@Override
@@ -40,7 +38,7 @@ public class GenericServiceImpl<T extends AppEntity> implements CrudService<T>{
 
 	@Override
 	public List<T> findBy(T example) {
-		return null;
+		return repository.findBy(example);
 	}
 
 	@Override

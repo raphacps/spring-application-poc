@@ -38,18 +38,14 @@ public class Telefone implements Serializable, AppEntity {
 	@JsonIgnore
 	private Membro membro;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="id_igreja")
 	@ForeignKey(name="igrejaPK")
 	@JsonIgnore
 	private Igreja igreja;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public Integer getDdd() {

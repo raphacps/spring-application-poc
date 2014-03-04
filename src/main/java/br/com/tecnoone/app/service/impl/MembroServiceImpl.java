@@ -1,5 +1,7 @@
 package br.com.tecnoone.app.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,10 @@ public class MembroServiceImpl extends GenericServiceImpl<Membro> implements Mem
 	@Override
 	public Membro loadBy(Usuario usuario) {
 		return membroRepository.loadBy(usuario);
+	}
+	
+	@Override
+	public List<Membro> findBy(Membro membro) {
+		return membroRepository.findBy(membro);
 	}
 }

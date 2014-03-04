@@ -31,35 +31,5 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="panel panel-default less-shadow">
-				<div class="panel-body">
-					<h3 class="header smaller lighter blue">Resultado da busca</h3>
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h4 class='panel-title'>
-								Resultado para busca de membros
-							</h4>
-						</div>
-						<div class="panel-body" style="padding: 0px;">
-							
-							<table id="membroTable" class='table table-striped table-bordered table-hover'>
-							    <thead>
-							        <tr>
-							            <th>Nome</th>
-							            <th>Idade</th>
-							            <th>CPF</th>
-							            <th>RG</th>
-							        </tr>
-							    </thead>
-							    <tbody>
-							    </tbody>
-							</table>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-			
 		</form:form>
 	  

@@ -27,8 +27,8 @@ import br.com.tecnoone.app.domain.entity.embedabble.Endereco;
 
 @Entity
 @NamedQueries({
-		@NamedQuery(name = "membro.loadByIdUsuario", query = "select m from Membro m where m.usuario.id = :id"),
-		@NamedQuery(name = "membro.findAll", query = "Select m from Membro m") })
+				@NamedQuery(name = "membro.loadByIdUsuario", query = "select m from Membro m where m.usuario.id = :id"),
+				@NamedQuery(name = "membro.findAll", query = "Select m from Membro m") })
 @Table(name = "Membro")
 public class Membro implements AppEntity {
 

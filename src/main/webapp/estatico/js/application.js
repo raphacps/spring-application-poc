@@ -9,34 +9,6 @@ $('.page-content').tooltip({
 	}
 })
 
-
-
-
-$(function() {
-    $('#meuTeste').dataTable({
-    	"sDom": "rt<'col-md-5'il><'pagination col-md-7 text-right'p>",
-    	"sPaginationType": "full_numbers",
-    	"bPaginate": true,
-    	"oLanguage": application.DATATABLE_I18N_CONFIGURATIONS
-    });
-});
-
-$(function() {
-    $('#membroTable').dataTable({
-    	/*"sPaginationType": "full_numbers",*/
-    	/*"bPaginate": true,*/
-    	"oLanguage": application.DATATABLE_I18N_CONFIGURATIONS,
-    	/*"bProcessing": true,*/
-        "sAjaxSource": 'consultarMembros',
-        "aoColumns": [
-                      { "mData": "nome" },
-                      { "mData": "idade" },
-                      { "mData": "cpf" },
-                      { "mData": "rg" }
-                  ]
-    });
-});
-
 function Application() {
 	/* Constantes para aplicar css */
 	var WARNING = 'warning';

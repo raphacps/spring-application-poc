@@ -21,5 +21,5 @@ public interface Dao<T extends AppEntity> {
 	
 	Integer getCount(String namedQuery);
 	
-	List<T> findByExample(T example);
+	List<T> findBy(String strQuery, HashMap<String, Object> params);
 }

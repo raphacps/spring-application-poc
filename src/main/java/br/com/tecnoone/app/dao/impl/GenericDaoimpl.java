@@ -59,9 +59,16 @@ public class GenericDaoimpl	implements Dao<AppEntity> {
 		return (AppEntity) query.getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<AppEntity> findByExample(AppEntity example) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<AppEntity> findBy(String strQuery, HashMap<String, Object> params) {
+		Query query = entityManager.createQuery(strQuery);
+		Set<String> chaves = params.keySet();
+		
+		for(String chave : chaves){
+			query.setParameter(chave, params.get(chave));
+		}
+		
+	    return query.getResultList();
 	}
 }

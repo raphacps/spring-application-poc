@@ -86,7 +86,7 @@
 		</c:otherwise>
 	</c:choose>
 
-<c:if test="${param.page eq 'alteracao'}">
+<c:if test="${param.page eq 'alteracaooo'}">
 
 	<div class="form-group row has-error">
 		<div class="col-md-5">

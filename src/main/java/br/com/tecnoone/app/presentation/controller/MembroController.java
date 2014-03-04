@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.tecnoone.app.domain.entity.Membro;
+import br.com.tecnoone.app.domain.entity.Telefone;
 import br.com.tecnoone.app.service.core.CrudService;
 
 @Controller
@@ -36,7 +36,7 @@ public class MembroController {
 	private static final Logger logger = LoggerFactory.getLogger(MembroController.class);
 	
 	@Autowired
-	@Qualifier("genericServiceImpl")
+	@Qualifier("membroServiceImpl")
 	private CrudService<Membro> membroService;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -62,39 +62,37 @@ public class MembroController {
 	}
     
     @RequestMapping(value="/prepararAlteracao", method=RequestMethod.GET)
-	public String prepararAlteracao(ModelMap model){
-		
+	public String prepararAlteracao(@ModelAttribute("membro") Membro membro, Model model){
+    	model.addAttribute("membro", membroService.load(membro));
 		return PREPARAR_ALTERACAO;
-	}	
+	}
     
-    @RequestMapping(value="/prepararConsulta", method=RequestMethod.GET)
-    public String prepararConsulta(Membro membro){
-    	return PREPARAR_CONSULTA;
-    }
-    
-    @RequestMapping(value="/consultar", method=RequestMethod.GET)
-    @ResponseBody
-    public List<Membro> consultar(){
-    	return membroService.findAll(Membro.class);
-    }
-    
-    @RequestMapping(value="/consultarMembros", method=RequestMethod.GET)
-    @ResponseBody
-    public Map<String,List<Membro>> consultarMembros(){
-    	Map<String,List<Membro>> mem = new HashMap<String, List<Membro>>();
-    	mem.put("aaData", membroService.findAll(Membro.class));
-    	return mem;
-    }
-	
-	
-	
-	@RequestMapping(value="/alterar", method=RequestMethod.POST)
-	public String alterar(@ModelAttribute("membro") @Valid Membro membro, BindingResult result, ModelMap model, RedirectAttributes redirectAttrs){
+    @RequestMapping(value="/alterar", method=RequestMethod.POST)
+	public String alterar(@ModelAttribute("membro") @Valid Membro membro, BindingResult result, Model model){
 		if(result.hasErrors()){
 			return PREPARAR_ALTERACAO;
 		}
 		
-		redirectAttrs.addFlashAttribute("mensagem","Alterado com sucesso!");
-		return "redirect:prepararAlteracao";
+		for(Telefone tels : membro.getTelefones()){
+			tels.setId(membro.getId());
+		}
+		
+		membro = membroService.update(membro);
+		model.addAttribute("mensagem","Alterado com sucesso!");
+		return prepararAlteracao(membro, model);
 	}
+    
+    @RequestMapping(value="/prepararConsulta", method=RequestMethod.GET)
+    public String prepararConsulta(@ModelAttribute("membro") Membro membro){
+    	return PREPARAR_CONSULTA;
+    }
+    
+    @RequestMapping(value="/consultarMembros", method=RequestMethod.GET)
+    @ResponseBody
+    public Map<String,List<Membro>> consultarMembros(@ModelAttribute("membro") Membro membro, @ModelAttribute("membroSession") Membro membroSession){
+    	Map<String,List<Membro>> mem = new HashMap<String, List<Membro>>();
+    	membro.setIgreja(membroSession.getIgreja());
+    	mem.put("aaData", membroService.findBy(membro));
+    	return mem;
+    }	
 }
