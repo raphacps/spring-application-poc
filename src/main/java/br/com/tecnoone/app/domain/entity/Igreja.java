@@ -43,8 +43,10 @@ public class Igreja implements AppEntity {
 	@ForeignKey(name = "sedePK", inverseName = "congregacaoPK")
 	private List<Igreja> congrecacoes = new ArrayList<>();
 
-	@OneToMany(mappedBy = "igreja", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Telefone> telefones;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_igreja")
+	@ForeignKey(name="igrejaPK")
+	private List<Telefone> telefones = new ArrayList<>();
 
 	@Column(nullable = false)
 	private String cnpj;
@@ -121,8 +123,10 @@ public class Igreja implements AppEntity {
 		return telefones;
 	}
 
-	public void setTelefones(List<Telefone> telefones) {
-		this.telefones = telefones;
+	public void addTelefones(Telefone... telefones) {
+		for(Telefone tel : telefones){
+			this.telefones.add(tel);
+		}
 	}
 
 	public List<Departamento> getDepartamentos() {

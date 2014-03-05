@@ -39,5 +39,4 @@ public class MembroRepository extends GenericRepositoryImpl<Membro>{
 		
 		return dao.findBy(strQuery.toString(), params);
 	}
-
 }

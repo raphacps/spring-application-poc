@@ -1,5 +1,6 @@
 package br.com.tecnoone.app.domain.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,8 +47,10 @@ public class Membro implements AppEntity {
 	private String cpf;
 	private String rg;
 
-	@OneToMany(mappedBy = "membro", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Telefone> telefones;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_membro")
+	@ForeignKey(name="membroPK")
+	private List<Telefone> telefones = new ArrayList<>();
 
 	@Embedded
 	private Endereco endereco;
@@ -107,6 +110,12 @@ public class Membro implements AppEntity {
 		return telefones;
 	}
 
+	public void addTelefone(Telefone... telefones) {
+		for(Telefone tel : telefones){
+			this.telefones.add(tel);
+		}
+	}
+	
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
 	}

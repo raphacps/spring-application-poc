@@ -2,22 +2,15 @@ package br.com.tecnoone.app.domain.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.hibernate.annotations.ForeignKey;
-
 @Entity
-@Table(name="Telefone")
+@Table(name = "Telefone")
 public class Telefone implements Serializable, AppEntity {
 
 	private static final long serialVersionUID = -7647570788191345491L;
@@ -32,18 +25,6 @@ public class Telefone implements Serializable, AppEntity {
 	@Column(nullable = false)
 	private String numero;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="id_membro")
-	@ForeignKey(name="membroPK")
-	@JsonIgnore
-	private Membro membro;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="id_igreja")
-	@ForeignKey(name="igrejaPK")
-	@JsonIgnore
-	private Igreja igreja;
-	
 	public Long getId() {
 		return id;
 	}
@@ -64,22 +45,6 @@ public class Telefone implements Serializable, AppEntity {
 		this.numero = numero;
 	}
 
-	public Membro getMembro() {
-		return membro;
-	}
-
-	public void setMembro(Membro membro) {
-		this.membro = membro;
-	}
-	
-	public Igreja getIgreja() {
-		return igreja;
-	}
-
-	public void setIgreja(Igreja igreja) {
-		this.igreja = igreja;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -88,8 +53,7 @@ public class Telefone implements Serializable, AppEntity {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((ddd == null) ? 0 : ddd.hashCode());
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -102,15 +66,10 @@ public class Telefone implements Serializable, AppEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Telefone other = (Telefone) obj;
-		if (ddd == null) {
-			if (other.ddd != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!ddd.equals(other.ddd))
-			return false;
-		if (numero == null) {
-			if (other.numero != null)
-				return false;
-		} else if (!numero.equals(other.numero))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}

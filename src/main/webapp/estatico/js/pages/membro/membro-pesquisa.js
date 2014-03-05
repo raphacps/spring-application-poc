@@ -8,6 +8,7 @@ var page = {
 	},
 	
 	exibeResultado : function(){
+		page.esconderFormulario();
 		$(function() {
 		    $('#membroTable').dataTable({
 		    	"oLanguage": application.DATATABLE_I18N_CONFIGURATIONS,
@@ -34,8 +35,8 @@ var page = {
 																			"<i class='icon-trash bigger-130'></i>" +
 																		"</a>" +
 																	"</div>";
-								                     }
-							}
+								                     	  }
+							  }
 		                  ]
 		    });
 		})

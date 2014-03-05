@@ -60,6 +60,7 @@
 	<c:choose>
 		<c:when test="${param.page eq 'alteracao'}">
 			<c:forEach var="tels" items="telefones" varStatus="index">
+				<form:hidden path="telefones[${index.count-1}].id"/>
 				<div class="form-group row">
 					<div class="col-md-2">
 						<form:label path="telefones[${index.count-1}].ddd">ddd:</form:label>

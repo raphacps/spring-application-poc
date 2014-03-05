@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.tecnoone.app.domain.entity.Membro;
-import br.com.tecnoone.app.domain.entity.Telefone;
 import br.com.tecnoone.app.service.core.CrudService;
 
 @Controller
@@ -72,11 +71,7 @@ public class MembroController {
 		if(result.hasErrors()){
 			return PREPARAR_ALTERACAO;
 		}
-		
-		for(Telefone tels : membro.getTelefones()){
-			tels.setId(membro.getId());
-		}
-		
+				
 		membro = membroService.update(membro);
 		model.addAttribute("mensagem","Alterado com sucesso!");
 		return prepararAlteracao(membro, model);
