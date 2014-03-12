@@ -89,5 +89,11 @@ public class MembroController {
     	membro.setIgreja(membroSession.getIgreja());
     	mem.put("aaData", membroService.findBy(membro));
     	return mem;
-    }	
+    }
+    
+    @RequestMapping(value="/removerMembro", method=RequestMethod.POST)
+    public void remover(Membro membro, RedirectAttributes redirectAttrs){
+    	membroService.remove(membro);
+    	redirectAttrs.addFlashAttribute("mensagem", "Membro removido com sucesso!");
+    }
 }

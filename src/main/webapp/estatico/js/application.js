@@ -89,5 +89,7 @@ function Application() {
 		    }
 	};
 	
+	this.CROSS_DOMAIN_CONFIG = "?callback=?";
+	
 	
 }

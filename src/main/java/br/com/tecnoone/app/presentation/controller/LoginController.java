@@ -35,7 +35,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String login(HttpSession session) {
+	public String logout(HttpSession session) {
 		logger.info("Terminando a sessão do usuário");
 		session.invalidate();
 		return "redirect:/login";

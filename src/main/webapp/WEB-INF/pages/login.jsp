@@ -62,9 +62,20 @@
 								<h4 class="blue">&copy; Tecno-One Informatica LTDA-ME</h4>
 							</div>
 
-							<div class="space-6"></div>
+							
 
 							<div class="position-relative">
+							<c:if test="${not empty mensagem}">
+								<div class="alert alert-danger">
+									<strong>
+										<i class="icon-remove"></i>
+										Erro de Autorização!
+									</strong>
+									${mensagem}
+									<br>
+								</div>
+								<div class="space-2"></div>
+							</c:if>
 								<div id="login-box" class="login-box visible widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
@@ -170,7 +181,6 @@
 				</div><!-- /.row -->
 			</div>
 		</div><!-- /.main-container -->
-
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->

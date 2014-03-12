@@ -93,7 +93,24 @@
         <beans:property name="defaultErrorView" value="erro-500"/>
         <beans:property name="exceptionAttribute" value="ex"/>
 
+		<beans:property name="exceptionMappings">
+			<beans:props>
+				<beans:prop key="br.com.tecnoone.app.exception.PermissionDeniedException">acesso.negado.page</beans:prop>
+				<beans:prop key="br.com.tecnoone.app.exception.UnauthorizedException">login</beans:prop>
+				<beans:prop key="java.lang.Exception">error.page</beans:prop>
+			</beans:props>
+		</beans:property>
+
+
         <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
         <beans:property name="warnLogCategory" value="ichurch.MvcLogger"/>
+        
     </beans:bean>
+    
+    <!-- INTERCEPTORS: INICIO -->
+	<mvc:interceptors>
+		<beans:bean id="canalClienteAuth" class="br.com.tecnoone.app.presentation.auth.IChurchAuthorization"/>
+	</mvc:interceptors>
+	<!-- INTERCEPTORS: FIM -->	
+    
 </beans:beans>
